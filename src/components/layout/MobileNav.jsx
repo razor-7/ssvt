@@ -115,6 +115,51 @@ export default function MobileNav({ navigation, ui, isOpen, onClose, currentPath
             ))}
           </ul>
         </nav>
+
+        {/* Bottom CTA area */}
+        <div className="p-4 border-t border-gray-100 space-y-3 mt-2">
+          {/* Primary CTA */}
+          <a
+            href="/contact/"
+            onClick={onClose}
+            className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-orange-accent text-white font-semibold rounded-lg hover:bg-orange-light no-underline transition-colors min-h-[48px] text-sm"
+          >
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+              <rect x="1" y="3" width="13" height="9" rx="1.5" stroke="white" strokeWidth="1.3"/>
+              <path d="M1 6l6.5 4L14 6" stroke="white" strokeWidth="1.3"/>
+            </svg>
+            {ui.NAV_REQUEST_QUOTE}
+          </a>
+
+          {/* Secondary links row */}
+          <div className="flex gap-2">
+            <a
+              href="/tracking/"
+              onClick={onClose}
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 bg-navy text-white rounded-lg hover:bg-navy-light no-underline text-xs font-medium transition-colors min-h-[44px]"
+            >
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="7" width="12" height="6" rx="1" stroke="white" strokeWidth="1.2"/>
+                <path d="M3 7V5l2-3h4l2 3v2" stroke="white" strokeWidth="1.2" strokeLinejoin="round"/>
+                <circle cx="3.5" cy="11" r="1" fill="white"/>
+                <circle cx="10.5" cy="11" r="1" fill="white"/>
+              </svg>
+              {ui.NAV_TRACKING_LABEL}
+            </a>
+            {/* Brochure download shown if configured */}
+            <a
+              href="/brochure.pdf"
+              download
+              onClick={onClose}
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 border border-gray-200 text-gray-600 rounded-lg hover:bg-gray-50 no-underline text-xs font-medium transition-colors min-h-[44px]"
+            >
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              {ui.BROCHURE_DOWNLOAD_LABEL}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

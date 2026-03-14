@@ -39,11 +39,21 @@ export default function PageShell({
         <title>{title}</title>
         <meta name="description" content={description} />
         {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+        {/* Favicons — multi-format for broadest browser support */}
+        <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#f07b2b" />
+
+        {/* Open Graph */}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
         {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
         <meta property="og:type" content="website" />
+
         <link rel="stylesheet" href="/assets/styles.css" />
         {orgJsonLd && (
           <script

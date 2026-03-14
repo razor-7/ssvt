@@ -1,1 +1,45 @@
-{"locations":[{"type":"Head","label":"Head Office","address":"12 Logistics Boulevard, Industrial Park, Mumbai 400001, India","phone":"+91 22 1234 5678"},{"type":"Corporate","label":"Corporate Office","address":"Level 15, Tower B, Business District, Delhi 110001, India","phone":"+91 11 9876 5432"},{"type":"Regional","label":"Regional Office — Chennai","address":"45 Port Road, Chennai 600001, India","phone":"+91 44 2345 6789"}],"mapConfig":{"staticMapImagePath":"/images/map-static.svg","mapImageAlt":"SSVT Logistics office locations across India","viewOnMapsUrl":"https://maps.google.com"}}
+{
+  "locations": [
+    {
+      "type": "Head",
+      "label": "Head Office",
+      "address": "12 Logistics Boulevard, Industrial Park, Mumbai 400001, India",
+      "phone": "+91 22 1234 5678"
+    },
+    {
+      "type": "Corporate",
+      "label": "Corporate Office",
+      "address": "Level 15, Tower B, Business District, Delhi 110001, India",
+      "phone": "+91 11 9876 5432"
+    },
+    {
+      "type": "Regional",
+      "label": "Regional Office — Chennai",
+      "address": "45 Port Road, Chennai 600001, India",
+      "phone": "+91 44 2345 6789"
+    },
+    {
+      "type": "International",
+      "label": "Singapore Office",
+      "address": "30 Cecil Street, #19-08 Prudential Tower, Singapore 049712",
+      "phone": "+65 6321 8800"
+    },
+    {
+      "type": "International",
+      "label": "Dubai Office",
+      "address": "Level 9, Jumeirah Business Centre, JLT Cluster J, Dubai, UAE",
+      "phone": "+971 4 512 3456"
+    },
+    {
+      "type": "International",
+      "label": "UK Representative",
+      "address": "2nd Floor, 25 Victoria Street, London SW1H 0EX, United Kingdom",
+      "phone": "+44 20 7946 0123"
+    }
+  ],
+  "mapConfig": {
+    "staticMapImagePath": "/images/map-static.svg",
+    "mapImageAlt": "SSVT Logistics global office locations across India, Singapore, Dubai and London",
+    "viewOnMapsUrl": "https://maps.google.com"
+  }
+}

@@ -3,6 +3,7 @@ import PageShell from './PageShell.jsx';
 import Header from '../components/layout/Header.jsx';
 import Footer from '../components/layout/Footer.jsx';
 import HeroSection from '../components/sections/HeroSection.jsx';
+import TrustBanner from '../components/sections/TrustBanner.jsx';
 import ServicesSection from '../components/sections/ServicesSection.jsx';
 import IndustriesSection from '../components/sections/IndustriesSection.jsx';
 import StatsSection from '../components/sections/StatsSection.jsx';
@@ -31,6 +32,7 @@ export default function HomePage({
       <Header siteConfig={siteConfig} navigation={navigation} ui={ui} currentPath={currentPath} data-pagefind-ignore />
       <main id="main-content" data-pagefind-body>
         <HeroSection siteConfig={siteConfig} ui={ui} />
+        <TrustBanner ui={ui} />
         <div id="filter-root" data-pagefind-ignore>
           {/* Fallback static render for SEO — replaced by FilterRoot island on hydration */}
           <ServicesSection services={services} ui={ui} />

@@ -63,7 +63,12 @@
       "WebFetch(domain:github.com)",
       "Bash(netstat -ano)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4176/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4176/)",
+      "WebFetch(domain:lively-cliff-04acf7f00.6.azurestaticapps.net)",
+      "Bash(ls c:/ssvt/public/favicon*)",
+      "Bash(node scripts/generate-favicon.mjs)",
+      "Bash(node -e \"const p = JSON.parse\\(require\\(''fs''\\).readFileSync\\(''c:/ssvt/package.json'',''utf8''\\)\\); console.log\\(JSON.stringify\\(p.scripts, null, 2\\)\\)\")",
+      "Bash(ls c:/ssvt/dist/favicon*)"
     ]
   }
 }

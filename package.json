@@ -16,7 +16,8 @@
     "lighthouse": "lhci autorun",
     "bundle:check": "node scripts/bundle-check.mjs",
     "seed": "node scripts/seed.mjs",
-    "deploy:gh": "gh-pages -d dist"
+    "deploy:gh": "gh-pages -d dist",
+    "favicon": "node scripts/generate-favicon.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

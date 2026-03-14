@@ -1,0 +1,27 @@
+{
+  "heading": "Track Your Shipment",
+  "subtext": "Enter your shipment reference or Bill of Lading number to receive a real-time status update from our operations team.",
+  "howItWorksSteps": [
+    {
+      "step": 1,
+      "label": "Submit Your Reference",
+      "description": "Enter your Bill of Lading or SSVT shipment reference and your contact email."
+    },
+    {
+      "step": 2,
+      "label": "Operations Review",
+      "description": "Our 24/7 operations team retrieves your real-time cargo status from our fleet management system."
+    },
+    {
+      "step": 3,
+      "label": "Status Delivered",
+      "description": "Receive a detailed status update by email within 2 hours, including current location and ETA."
+    }
+  ],
+  "contactPhone": "+91 22 1234 5678",
+  "contactEmail": "tracking@ssvtlogistics.com",
+  "seo": {
+    "title": "Track Your Shipment",
+    "description": "Track your SSVT Logistics shipment. Enter your Bill of Lading or reference number for a real-time status update from our 24/7 operations team."
+  }
+}

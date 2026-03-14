@@ -523,6 +523,28 @@ async function generatePrivacyPolicyPage() {
   writePage('privacy-policy/index.html', html);
 }
 
+async function generateTrackingPage() {
+  const TrackingPage = await importTemplate('TrackingPage');
+  if (!TrackingPage) return;
+
+  const tracking = readJson('tracking.json');
+  validateSeo(tracking.seo, 'tracking');
+
+  const html = renderPage(TrackingPage, {
+    siteConfig, navigation, ui, tracking, seo: tracking.seo,
+    currentPath: '/tracking/',
+    canonicalUrl: canonicalUrl('/tracking/'),
+    pageDataScript: JSON.stringify({
+      ui,
+      analyticsId: siteConfig.analyticsId,
+      formspreeId: siteConfig.formspreeId,
+      contactEmail: 'tracking@ssvtlogistics.com',
+    }),
+    islandScript: '/assets/tracking.js',
+  });
+  writePage('tracking/index.html', html);
+}
+
 async function generateNotFoundPage() {
   const NotFoundPage = await importTemplate('NotFoundPage');
   if (!NotFoundPage) return;
@@ -559,6 +581,7 @@ async function main() {
   await generateSustainabilityPage();
   await generateTrainingAcademyPage();
   await generatePrivacyPolicyPage();
+  await generateTrackingPage();
   await generateNotFoundPage();
 
   console.log('\n✅ Static build complete.');

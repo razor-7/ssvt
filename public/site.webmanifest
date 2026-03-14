@@ -1,0 +1,22 @@
+{
+  "name": "SSVT Logistics",
+  "short_name": "SSVT",
+  "description": "Precision Logistics for a Complex World",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d2d5b",
+  "theme_color": "#f07b2b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

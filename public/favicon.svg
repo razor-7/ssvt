@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <!-- Gradient: warm highlight top-left → rich orange bottom-right -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#f59340"/>
+      <stop offset="100%" stop-color="#d9601a"/>
+    </linearGradient>
+    <!-- Soft glow on the trend line -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Rounded square with gradient background -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+
+  <!-- Top-edge gloss highlight (subtle "glass" sheen) -->
+  <rect x="1" y="1" width="30" height="13" rx="6" fill="white" opacity="0.10"/>
+
+  <!-- Area fill under the trend line — gives depth -->
+  <path d="M2 22L10 8L18 16L26 6L30 10L30 27L2 27Z"
+        fill="white" opacity="0.13"/>
+
+  <!-- Trend line with glow — same path as header logo -->
+  <path d="M2 22L10 8L18 16L26 6L30 10"
+        stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"
+        fill="none" filter="url(#glow)"/>
+
+  <!-- Peak accent dot at the highest point (26, 6) -->
+  <circle cx="26" cy="6" r="2.2" fill="white"/>
+  <!-- Inner ring on peak dot for depth -->
+  <circle cx="26" cy="6" r="1.1" fill="#f07b2b" opacity="0.6"/>
+
+  <!-- Baseline — slightly muted so line pops -->
+  <line x1="2" y1="27" x2="30" y2="27"
+        stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+</svg>
