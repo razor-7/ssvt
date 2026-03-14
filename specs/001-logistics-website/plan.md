@@ -17,6 +17,7 @@ folder of static files deployable to any static host with zero server process.
 ## Technical Context
 
 **Language/Version**: JavaScript ES2022+ / Node.js 20+ (build-time); browser-target ES2019+
+**Build Runner**: `tsx` (dev dependency) — provides `--import tsx/esm` loader so the Node.js build script can import JSX components directly without a separate transpile step
 **Framework**: React 18 + Vite 5 (MPA — multipage static generation, React islands for interactivity)
 **Styling**: Tailwind CSS 3 (single CSS approach; utility-first; purged at build)
 **Storage**: Local JSON files under `data/` at repository root (no database, no runtime fetch)
@@ -123,11 +124,13 @@ specs/001-logistics-website/
 │   ├── images/
 │   │   ├── hero/                   # hero background images (WebP)
 │   │   ├── services/               # service icons/images (SVG + WebP)
-│   │   ├── industries/             # industry images (WebP)
+│   │   ├── industries/             # industry images (SVG)
 │   │   ├── case-studies/           # case study images (WebP)
 │   │   ├── team/                   # team member photos (WebP, optional)
 │   │   ├── partners/               # partner logos (SVG preferred)
-│   │   └── map-static.webp         # static office map image
+│   │   ├── map-static.svg          # static office map image (SVG with location pins)
+│   │   └── og-default.svg          # default OpenGraph share image (1200×630 SVG)
+│   ├── nav.js                      # vanilla JS for desktop dropdowns + mobile nav drawer
 │   └── brochure.pdf                # downloadable company brochure
 │
 ├── src/
@@ -235,4 +238,6 @@ completely separate from `src/`.
 | React islands on static pages | 6 interactive features (filter, form, search, consent, hero carousel, stat counter) require JS interactivity | Pure HTML + vanilla JS could work for simple cases but becomes unmaintainable across 19 page types; React provides the component model the constitution already sanctions |
 | Pagefind (post-build) | Static full-text search across 40+ pages with zero runtime server (FR-E04) | No simpler static search solution exists; Pagefind is the standard tool for this use case; it is lazy-loaded so it does not affect the initial bundle |
 | **Constitution II Exception — Formspree `fetch()` POST** | FR-007 and FR-P20 require a working contact form. The spec mandates Formspree as the static-compatible form service. The `ContactForm` component issues a single `fetch()` POST to `https://formspree.io/f/{id}` only on explicit user submission — this is a user-initiated action, not a background data-fetching call or a runtime dependency. All page content and data remain exclusively from local JSON. Constitution Principle II prohibits runtime `fetch()` to external APIs for *data*; this POST carries no data into the page — it only sends user-entered form data outbound. | A pure `mailto:` fallback is provided when `formspreeId` is null (zero external dependency). The alternative of a serverless function would require amending the Static-First principle more significantly. This exception is the minimum departure from Principle II needed to satisfy FR-007. |
+| **Vanilla JS `public/nav.js` for navigation interactivity** | `renderToStaticMarkup` strips all React event handlers from the output HTML. Dropdown menus and the mobile nav drawer must be interactive before any React island hydrates. `public/nav.js` is a self-contained IIFE that runs on every page via a `<script src="/nav.js">` tag; it uses `data-*` attribute selectors (`data-dropdown`, `data-mobile-nav`, etc.) to toggle `hidden` classes — no DOM IDs, no globals, no React dependency. | Moving nav interactivity into a React island would require a full hydration pass before the header becomes usable; a shared header island across 40+ pages would complicate island mounting and increase JS weight. |
+| **`@import` order in `tailwind.css`** | PostCSS requires `@import` statements to precede all `@tailwind` directives. `@import './base.css'` must be the first line of `tailwind.css` or PostCSS silently drops the import, causing all CSS custom properties (design tokens) to be undefined at runtime. | No simpler alternative — this is a PostCSS constraint. |
 | **micromark (build-time Markdown parser)** | `data/insights/{slug}.json` (`bodyMarkdown`), `data/case-studies/{slug}.json` (`fullBody`), and `data/privacy-policy.md` store content in Markdown. Converting at build time in `build-static.mjs` requires a Markdown→HTML parser. **Browser bundle impact: zero** — micromark runs only in Node.js during the build; it is never bundled into any client JS file. | Node.js stdlib has no Markdown parser. A regex-based hand-rolled converter is insufficient for spec content (headings, lists, links). micromark is the lightest compliant CommonMark parser (~20 KB installed, 0 KB browser impact). |

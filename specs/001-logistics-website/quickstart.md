@@ -49,10 +49,11 @@ npm run build
 ```
 
 This runs three steps in sequence:
-1. `node scripts/build-static.mjs` — reads all JSON data, renders React templates
-   to HTML, writes page files, validates slug cross-references
+1. `node --import tsx/esm scripts/build-static.mjs` — reads all JSON data, renders React templates
+   to HTML, writes page files, validates slug cross-references. The `--import tsx/esm` flag is
+   required to enable JSX imports in the Node.js build script without a separate transpile step.
 2. `vite build` — bundles JS islands, processes Tailwind CSS, hashes assets
-3. `pagefind --site dist` — crawls all HTML, generates search index in `dist/_pagefind/`
+3. `npx pagefind --site dist` — crawls all HTML, generates search index in `dist/pagefind/`
 
 ---
 
@@ -167,7 +168,7 @@ No environment variables are required. All configuration is in `data/config/site
 | Script | Command | Description |
 |--------|---------|-------------|
 | `dev` | `vite` | Dev server with HMR |
-| `build` | `node scripts/build-static.mjs && vite build && pagefind --site dist` | Full production build |
+| `build` | `node --import tsx/esm scripts/build-static.mjs && vite build && npx pagefind --site dist` | Full production build |
 | `preview` | `vite preview` | Serve `dist/` locally |
 | `test` | `vitest run` | Unit tests |
 | `test:e2e` | `playwright test` | E2E + a11y + responsive tests |

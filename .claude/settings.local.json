@@ -58,7 +58,9 @@
       "Bash(pkill -f \"vite preview\")",
       "Bash(curl -s http://localhost:4173/)",
       "Bash(curl -s http://localhost:4174/)",
-      "Bash(/c/ssvt/public/images/og-default.svg:*)"
+      "Bash(/c/ssvt/public/images/og-default.svg:*)",
+      "Bash(gh run:*)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

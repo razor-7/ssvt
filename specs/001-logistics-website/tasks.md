@@ -204,7 +204,7 @@ Single-project MPA. All source at repository root: `src/`, `data/`, `scripts/`, 
 
 **Independent Test**: Open dist/contact/index.html; submit with missing fields — required field errors appear inline; submit with valid data — success message appears (mock Formspree endpoint in test env).
 
-- [X] T090 [US5] Create data/offices.json with locations[] (Head Office, Corporate Office, 1 Regional Office — placeholder addresses and phone numbers) and mapConfig{staticMapImagePath "/images/map-static.webp", mapImageAlt "SSVT Logistics office locations map", viewOnMapsUrl "https://maps.google.com"}
+- [X] T090 [US5] Create data/offices.json with locations[] (Head Office, Corporate Office, 1 Regional Office — placeholder addresses and phone numbers) and mapConfig{staticMapImagePath "/images/map-static.svg", mapImageAlt "SSVT Logistics office locations map", viewOnMapsUrl "https://maps.google.com"}
 - [X] T091 [P] [US5] Create src/components/ui/ContactForm.jsx — controlled React form with fields: name, email, phone, service (select populated from services prop), message, hidden honeypot (_gotcha), submit button; client-side validation per form-submission-contract.md (required + email RFC 5322 pattern); POST to Formspree on submit; shows CONTACT_FORM_SUBMITTING during POST; shows CONTACT_FORM_SUCCESS and resets fields on 200; shows CONTACT_FORM_ERROR + mailto fallback link on error; all labels/messages from ui prop; submit disabled during POST
 - [X] T092 [US5] Update src/components/sections/ContactSection.jsx to import and render ContactForm.jsx island placeholder (for SSR markup) and wire the interactive ContactForm island in the page entry
 - [X] T093 [P] [US5] Create src/templates/ContactPage.jsx — renders ContactSection (with ContactForm), office location cards (type, label, address, phone — from pageData.offices.locations), static map image with mapImageAlt and "View on Maps" external link; no iframe or external JS; seo metadata
@@ -260,7 +260,7 @@ Single-project MPA. All source at repository root: `src/`, `data/`, `scripts/`, 
 - [X] T119 [P] Create build step for 404.html in scripts/build-static.mjs: generate dist/404.html (not dist/404/index.html) from NotFoundPage using NotFoundPageData (ui strings only); embed __PAGE_DATA__ for SearchBar island
 - [X] T120 [P] Create src/pages/404/main.jsx — island: reads __PAGE_DATA__, hydrates SearchBar (lazy-loads Pagefind), BackToTop, CookieBanner
 
-- [X] T121 Create src/components/ui/SearchBar.jsx — search icon button in header that opens a modal/overlay on click; modal lazy-loads Pagefind UI script and CSS from /_pagefind/pagefind-ui.js on first open; renders pagefind-ui div; closes on Escape or outside click; all labels from ui prop; accessible focus trap while open
+- [X] T121 Create src/components/ui/SearchBar.jsx — search icon button in header that opens a modal/overlay on click; modal lazy-loads Pagefind UI script and CSS from /pagefind/pagefind-ui.js on first open; renders pagefind-ui div; closes on Escape or outside click; all labels from ui prop; accessible focus trap while open
 - [X] T122 Update src/components/layout/Header.jsx to import and render SearchBar placeholder (icon button) wired to SearchBar island for client-side modal behaviour
 
 - [X] T123 Wire scroll-reveal animations across all templates: add `data-reveal` attribute to all major section wrappers in the following template files — HomePage.jsx, AboutPage.jsx, LeadershipPage.jsx, CompliancePage.jsx, QEHSPage.jsx, ServicesPage.jsx, ServiceDetailPage.jsx, IndustriesPage.jsx, IndustryDetailPage.jsx, CaseStudiesPage.jsx, CaseStudyDetailPage.jsx, InsightsPage.jsx, InsightDetailPage.jsx, SustainabilityPage.jsx, TrainingAcademyPage.jsx, CareersPage.jsx, ContactPage.jsx — and confirm `initScrollReveal()` is called in every corresponding main.jsx island (home, about, leadership, compliance, qehs, services, service-detail, industries, industry-detail, case-studies, case-study-detail, insights, insight-detail, sustainability, training-academy, careers, contact, privacy-policy, 404)
@@ -273,7 +273,7 @@ Single-project MPA. All source at repository root: `src/`, `data/`, `scripts/`, 
 
 - [X] T127 [P] Verify initial JS bundle size is ≤300 KB uncompressed: run `npm run bundle:check`; if over budget, alias react/react-dom to preact/compat in vite.config.js
 
-- [X] T128 [P] Add public/ placeholder assets: create public/images/ subdirectories (hero/, services/, industries/, case-studies/, team/, partners/); add a 1×1 transparent placeholder.webp and placeholder.svg to each; add a placeholder brochure.pdf and map-static.webp
+- [X] T128 [P] Add public/ placeholder assets: create public/images/ subdirectories (hero/, services/, industries/, case-studies/, team/, partners/); add a 1×1 transparent placeholder.webp and placeholder.svg to each; add a placeholder brochure.pdf and map-static.svg
 
 - [X] T129 Run Lighthouse CI audit against production build and verify thresholds pass: execute `npm run lighthouse`; confirm Performance ≥ 80 and SEO ≥ 95 on mobile simulation (SC-002); fix any failing components before marking complete — constitution Principle V quality gate
 
@@ -384,6 +384,25 @@ Team B: T052 → T053 → T054 → T055 → T056 → T057 → T058 → T059 → 
 | Phase 11 | US9 (P5) | 4 |
 | Phase 12 | Polish (remaining pages + search + quality gates) | 33 |
 | **Total** | | **132** |
+
+---
+
+## Phase 13: Post-Implementation Fixes
+
+**Purpose**: Bugs and gaps discovered during integration testing after initial task completion.
+All tasks in this phase are `[X]` — they have been applied to the codebase.
+
+- [X] FIX001 Fix CSS design tokens not rendering (blank/white pages): move `@import './base.css'` to line 1 of `src/styles/tailwind.css` — PostCSS silently drops `@import` statements that appear after any `@tailwind` directive, causing all CSS custom properties (`--color-navy`, `--color-orange-accent`, etc.) to be undefined at runtime
+
+- [X] FIX002 Fix navigation dropdowns non-functional after static generation: `renderToStaticMarkup` strips all React event handlers, so `useState`-driven dropdown logic in `Header.jsx` produced inert HTML. Fix: always render dropdown `<div>` with `hidden` class and `data-dropdown` / `data-dropdown-trigger` / `data-dropdown-menu` attributes; create `public/nav.js` (self-contained IIFE) to handle all toggle logic via DOM `data-*` selectors; replace inline `dangerouslySetInnerHTML` nav script with `<script src="/nav.js" />` in `PageShell.jsx`
+
+- [X] FIX003 Fix mobile nav drawer not opening: `MobileNav.jsx` returned `null` when `isOpen=false` (not in DOM), and the hamburger's React `onClick` was stripped in static HTML. Fix: always render drawer div with `hidden` class and `data-mobile-nav` attribute; add `data-mobile-open-btn` to hamburger, `data-mobile-close-btn` to close button, `data-mobile-overlay` to backdrop; all toggling handled by `public/nav.js`
+
+- [X] FIX004 Fix SearchBar never mounted on any page: `SearchBar` component existed but was not hydrated on any page. Fix: add `<div id="search-root" data-pagefind-ignore />` mount point to `PageShell.jsx`; add SearchBar import and `ReactDOM.createRoot(searchRoot).render(...)` to all 19 `src/pages/*/main.jsx` island entry points; SearchBar wires click from static header `#search-open-btn` button via `addEventListener` on mount
+
+- [X] FIX005 Fix search stuck on "Loading search…": `SearchBar.jsx` requested `/\_pagefind/pagefind-ui.js` but Pagefind v1.x outputs to `dist/pagefind/` (no leading underscore). Fix: changed both script `src` and CSS `href` to `/pagefind/pagefind-ui.js` and `/pagefind/pagefind-ui.css`
+
+- [X] FIX006 Fix constitution violations — hardcoded strings and missing assets: (a) "Search", "Menu", and "Loading search…" were hardcoded in `SearchBar.jsx` and `MobileNav.jsx` — moved to `data/config/ui.json` as `SEARCH_MODAL_TITLE`, `NAV_MOBILE_MENU_TITLE`, `SEARCH_LOADING`; (b) `og-default.webp` referenced in `site.json` but missing — created branded `public/images/og-default.svg` and updated `site.json`; (c) industry SVG icons in `public/images/industries/` contained placeholder "Partner" content — replaced with distinct branded SVG icons per industry; (d) `map-static.webp` referenced in `offices.json` but missing — created `public/images/map-static.svg` India map with office pins and updated `offices.json`
 
 ---
 

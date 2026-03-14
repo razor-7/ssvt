@@ -12,13 +12,13 @@ Pagefind runs as a post-build CLI step after `vite build` completes:
 // package.json
 {
   "scripts": {
-    "build": "node scripts/build-static.mjs && vite build && pagefind --site dist --output-path dist/_pagefind"
+    "build": "node --import tsx/esm scripts/build-static.mjs && vite build && npx pagefind --site dist"
   }
 }
 ```
 
 Pagefind crawls all HTML files in `dist/`, indexes visible text content, and writes
-the search index and UI assets to `dist/_pagefind/`.
+the search index and UI assets to `dist/pagefind/`.
 
 ---
 
@@ -42,26 +42,29 @@ The following `data-pagefind-*` attributes are used to control indexing:
 search panel (click on search icon in nav):
 
 ```js
-// SearchBar.jsx
-const [loaded, setLoaded] = useState(false);
-
-async function openSearch() {
-  if (!loaded) {
-    const { PagefindUI } = await import('/_pagefind/pagefind-ui.js');
-    new PagefindUI({ element: '#search-container', showImages: false });
-    setLoaded(true);
+// SearchBar.jsx — actual implementation (lazy loads via <script> tag, not dynamic import)
+const script = document.createElement('script');
+script.src = '/pagefind/pagefind-ui.js';
+script.onload = () => {
+  if (window.PagefindUI) {
+    new window.PagefindUI({ element: '#pagefind-search', showImages: false });
   }
-  // show search panel
-}
+  setLoaded(true);
+};
+document.head.appendChild(script);
+
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = '/pagefind/pagefind-ui.css';
+document.head.appendChild(link);
 ```
 
-The Pagefind UI JS (~50 KB) is **not** included in the initial bundle — it is a
-dynamic import triggered only on user interaction.
+The Pagefind UI JS (~50 KB) is **not** included in the initial bundle — it is loaded
+via a dynamically appended `<script>` tag, triggered only on first user interaction.
 
-> **Path note**: The build command writes the Pagefind index to `dist/_pagefind/`
-> (either via `--output-path dist/_pagefind` or Pagefind's default). At runtime this
-> serves as `/_pagefind/`. The import path MUST use the leading underscore:
-> `/_pagefind/pagefind-ui.js` — not `/pagefind/pagefind-ui.js`.
+> **Path note**: Pagefind v1.x writes its index to `dist/pagefind/` (no leading
+> underscore). At runtime this serves as `/pagefind/`. The script src MUST be
+> `/pagefind/pagefind-ui.js` — not `/_pagefind/pagefind-ui.js`.
 
 ---
 
