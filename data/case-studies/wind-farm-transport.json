@@ -1,0 +1,19 @@
+{
+  "id": "wind-farm-transport",
+  "slug": "wind-farm-transport",
+  "title": "Offshore Wind Farm Component Delivery",
+  "industryTag": "renewable-energy",
+  "serviceTag": "renewable-logistics",
+  "originLocation": "Rotterdam, Netherlands",
+  "destinationLocation": "Offshore Installation Site, Bay of Bengal",
+  "distanceKm": 2400,
+  "fullBody": "## The Challenge\n\nOur client, a leading renewable energy developer, awarded SSVT Logistics the contract to manage the complete logistics chain for a 120-turbine offshore wind farm. The project involved transporting 120 sets of wind turbine components — blades (78 metres each), nacelles (320 tonnes each), and tower sections — from manufacturing facilities in Europe to the installation site off the coast of India.\n\nThe primary challenge was the extreme size and weight of the components. Each blade required a custom-designed blade adapter and an A-frame trailer configuration. The nacelles exceeded standard road transport weight limits and required specialist multi-axle trailers and route surveys for every leg of the journey.\n\n## Our Solution\n\nSSVT developed a detailed logistics management plan that coordinated the movement of components from three European manufacturing sites to Rotterdam port, ocean freight on specialist heavy lift vessels to Chennai port, and onward transport by road to a marshalling yard adjacent to the installation port.\n\nOur team conducted route surveys for all road legs, identifying 23 infrastructure constraints that required engineering solutions — including temporary bridge strengthening, utility diversions, and traffic management schemes. We obtained all necessary permits and coordinated with transport authorities in three countries.\n\n## The Result\n\nAll 120 turbine sets were delivered to the installation marshalling yard within the project programme, enabling the installation vessel to begin operations on schedule. Zero safety incidents occurred across 2,400 component movements. The project was completed two weeks ahead of the original programme, allowing early commissioning of the wind farm.",
+  "outcome": "All 120 turbine sets delivered on schedule with zero safety incidents. Project completed two weeks ahead of programme, enabling early commissioning and revenue generation for the client.",
+  "imagePath": null,
+  "imageAlt": "Wind farm components being transported",
+  "relatedServiceSlugs": ["renewable-logistics", "project-heavy-lift", "port-terminal-handling"],
+  "seo": {
+    "title": "Offshore Wind Farm Component Delivery",
+    "description": "SSVT delivered 120 wind turbine sets from Europe to India for an offshore wind farm, completing the project two weeks ahead of schedule."
+  }
+}

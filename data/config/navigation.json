@@ -1,0 +1,41 @@
+[
+  {
+    "label": "Home",
+    "href": "/"
+  },
+  {
+    "label": "Who We Are",
+    "href": "/about/",
+    "children": [
+      { "label": "About Us", "href": "/about/" },
+      { "label": "Leadership", "href": "/leadership/" },
+      { "label": "Compliance", "href": "/compliance/" },
+      { "label": "Q&EHS", "href": "/qehs/" }
+    ]
+  },
+  {
+    "label": "Our Solutions",
+    "href": "/services/",
+    "children": [
+      { "label": "Services", "href": "/services/" },
+      { "label": "Industries", "href": "/industries/" },
+      { "label": "Training Academy", "href": "/training-academy/" }
+    ]
+  },
+  {
+    "label": "Insights",
+    "href": "/insights/"
+  },
+  {
+    "label": "Sustainability",
+    "href": "/sustainability/"
+  },
+  {
+    "label": "Careers",
+    "href": "/careers/"
+  },
+  {
+    "label": "Contact",
+    "href": "/contact/"
+  }
+]

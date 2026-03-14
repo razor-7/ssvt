@@ -1,0 +1,28 @@
+{
+  "heading": "Our Commitment to Compliance",
+  "body": "SSVT Logistics maintains the highest standards of regulatory compliance and corporate governance across all our operations. Our comprehensive compliance framework covers quality management, environmental management, health and safety, and regulatory requirements in every jurisdiction where we operate.\n\nWe hold internationally recognised certifications that demonstrate our commitment to excellence and provide assurance to our clients, partners, and regulatory authorities. Our compliance team continuously monitors regulatory developments and ensures our systems and processes meet or exceed the latest requirements.",
+  "certifications": [
+    {
+      "name": "ISO 9001:2015",
+      "description": "Quality Management Systems certification confirming our commitment to consistent quality in all services and operations.",
+      "badgePath": null,
+      "badgeAlt": "ISO 9001:2015 certification"
+    },
+    {
+      "name": "ISO 14001:2015",
+      "description": "Environmental Management Systems certification demonstrating our systematic approach to minimising environmental impact.",
+      "badgePath": null,
+      "badgeAlt": "ISO 14001:2015 certification"
+    },
+    {
+      "name": "OHSAS 18001",
+      "description": "Occupational Health and Safety Management certification confirming our industry-leading safety management practices.",
+      "badgePath": null,
+      "badgeAlt": "OHSAS 18001 certification"
+    }
+  ],
+  "seo": {
+    "title": "Compliance & Certifications",
+    "description": "SSVT Logistics holds ISO 9001, ISO 14001, and OHSAS 18001 certifications. Our compliance framework ensures quality and regulatory adherence."
+  }
+}

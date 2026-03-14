@@ -1,0 +1,16 @@
+{
+  "id": "customs-clearance",
+  "slug": "customs-clearance",
+  "name": "Customs Clearance",
+  "fullDescription": "SSVT Logistics provides expert customs brokerage and compliance services, ensuring your cargo clears customs smoothly and without delay. Our licensed customs brokers have in-depth knowledge of import and export regulations, tariff classifications, and trade compliance requirements across multiple jurisdictions.\n\nWe handle all aspects of the customs clearance process, including classification of goods, calculation of duties and taxes, preparation and lodgement of declarations, liaison with customs authorities, and management of any examinations or queries. Our team stays current with regulatory changes and can advise on duty optimisation strategies, free trade agreement benefits, and special customs regimes.\n\nFor project cargo and equipment imports, we have extensive experience with temporary import, carnet, and re-export procedures, helping clients minimise duty exposure and avoid costly delays. Our proactive approach to documentation preparation means we begin clearance processes before cargo arrives, minimising port storage costs.",
+  "icon": "/images/services/customs.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Customs clearance services",
+  "industryTags": ["manufacturing", "pharmaceutical", "government-defence"],
+  "caseStudySlugs": [],
+  "relatedServiceSlugs": ["freight-forwarding", "port-terminal-handling", "warehousing-distribution"],
+  "seo": {
+    "title": "Customs Clearance Services",
+    "description": "Expert customs brokerage and compliance. SSVT handles all customs declarations, duty management, and regulatory compliance."
+  }
+}

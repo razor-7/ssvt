@@ -1,0 +1,28 @@
+{
+  "heading": "SSVT Training Academy",
+  "overview": "The SSVT Training Academy provides industry-leading training programmes for logistics and transport professionals. Our courses combine practical skills development with theoretical knowledge, delivered by experienced practitioners with real-world expertise in specialised logistics operations.\n\nFrom safety-critical competencies to advanced project logistics management, the Academy supports career development at every level — from entry-level operators to senior project managers.",
+  "heroImagePath": null,
+  "heroImageAlt": "Training Academy participants in a classroom",
+  "courses": [
+    {
+      "title": "Project Logistics Fundamentals",
+      "description": "An introduction to project logistics for professionals new to the sector. Covers scope definition, route surveys, permit management, carrier selection, and stakeholder coordination.",
+      "duration": "3 days"
+    },
+    {
+      "title": "Heavy Lift & Oversized Transport",
+      "description": "Advanced programme covering the planning and execution of heavy lift and oversized transport operations. Includes hands-on SPMT training, lifting engineering fundamentals, and risk management.",
+      "duration": "5 days"
+    },
+    {
+      "title": "Logistics Safety Management",
+      "description": "Comprehensive safety management training covering risk assessment, incident investigation, safety management systems, and behavioural safety. Aligned with OHSAS 18001.",
+      "duration": "2 days"
+    }
+  ],
+  "enrolmentCtaLabel": "Enquire About Enrolment",
+  "seo": {
+    "title": "SSVT Training Academy",
+    "description": "Professional logistics training programmes from SSVT. Courses in project logistics, heavy lift operations, and safety management."
+  }
+}

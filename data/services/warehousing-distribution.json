@@ -1,0 +1,16 @@
+{
+  "id": "warehousing-distribution",
+  "slug": "warehousing-distribution",
+  "name": "Warehousing & Distribution",
+  "fullDescription": "SSVT Logistics operates secure, modern warehousing facilities at strategic locations close to major ports and industrial centres. Our warehousing capabilities range from ambient storage for standard goods to temperature-controlled facilities for sensitive cargo, and specialised outdoor hardstand areas for heavy equipment and project cargo.\n\nOur distribution services connect our warehousing facilities with project sites, manufacturing plants, and end customers across the region. We provide flexible distribution solutions from dedicated vehicle runs to consolidated shared-user services, depending on volume and urgency requirements.\n\nOur warehouse management system (WMS) provides real-time visibility of stock levels, location, and movement. We offer value-added services including pick-and-pack, kitting and assembly, labelling, and quality inspection. Our facilities are secured with 24/7 CCTV monitoring, access control, and insurance coverage for goods in our care.",
+  "icon": "/images/services/warehouse.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Warehousing and distribution facility",
+  "industryTags": ["manufacturing", "pharmaceutical", "automotive"],
+  "caseStudySlugs": [],
+  "relatedServiceSlugs": ["freight-forwarding", "customs-clearance", "last-mile-delivery"],
+  "seo": {
+    "title": "Warehousing & Distribution",
+    "description": "Secure warehousing and reliable distribution services at strategic locations. SSVT offers flexible storage and last-mile delivery."
+  }
+}

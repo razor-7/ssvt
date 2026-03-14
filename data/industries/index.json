@@ -1,0 +1,12 @@
+[
+  {"id":"renewable-energy","slug":"renewable-energy","name":"Renewable Energy","icon":"/images/industries/renewable.svg","summary":"Logistics for solar, wind, and hydro power infrastructure projects worldwide."},
+  {"id":"oil-and-gas","slug":"oil-and-gas","name":"Oil & Gas","icon":"/images/industries/oil-gas.svg","summary":"Critical supply chain solutions for upstream, midstream, and downstream operations."},
+  {"id":"mining-metals","slug":"mining-metals","name":"Mining & Metals","icon":"/images/industries/mining.svg","summary":"Heavy equipment and bulk material logistics for mining and metals operations."},
+  {"id":"construction","slug":"construction","name":"Construction","icon":"/images/industries/construction.svg","summary":"Project logistics and materials handling for large-scale construction projects."},
+  {"id":"power-generation","slug":"power-generation","name":"Power Generation","icon":"/images/industries/power.svg","summary":"Transport and installation logistics for power plant equipment and components."},
+  {"id":"manufacturing","slug":"manufacturing","name":"Manufacturing","icon":"/images/industries/manufacturing.svg","summary":"Integrated supply chain and logistics for manufacturing facilities."},
+  {"id":"government-defence","slug":"government-defence","name":"Government & Defence","icon":"/images/industries/defence.svg","summary":"Secure, compliant logistics for government and defence operations."},
+  {"id":"pharmaceutical","slug":"pharmaceutical","name":"Pharmaceutical","icon":"/images/industries/pharma.svg","summary":"Temperature-controlled and compliant logistics for pharmaceutical supply chains."},
+  {"id":"automotive","slug":"automotive","name":"Automotive","icon":"/images/industries/automotive.svg","summary":"Precision automotive parts and vehicle logistics with just-in-time delivery."},
+  {"id":"infrastructure","slug":"infrastructure","name":"Infrastructure","icon":"/images/industries/infrastructure.svg","summary":"Logistics support for major infrastructure development and civil engineering projects."}
+]

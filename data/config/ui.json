@@ -1,0 +1,76 @@
+{
+  "NAV_SEARCH_PLACEHOLDER": "Search...",
+  "NAV_MOBILE_OPEN_LABEL": "Open menu",
+  "NAV_MOBILE_CLOSE_LABEL": "Close menu",
+  "NAV_MOBILE_MENU_TITLE": "Menu",
+  "SEARCH_MODAL_TITLE": "Search",
+  "SEARCH_LOADING": "Loading search...",
+
+  "HERO_SCROLL_HINT": "Scroll to explore",
+
+  "SERVICES_SECTION_HEADING": "Our Services",
+  "SERVICES_LEARN_MORE": "Learn more",
+
+  "INDUSTRIES_SECTION_HEADING": "Industries We Serve",
+  "INDUSTRIES_FILTER_ALL": "All Industries",
+
+  "CASE_STUDIES_SECTION_HEADING": "Project Case Studies",
+  "CASE_STUDIES_FILTER_ALL": "All",
+  "CASE_STUDIES_ORIGIN_LABEL": "Origin",
+  "CASE_STUDIES_DESTINATION_LABEL": "Destination",
+  "CASE_STUDIES_DISTANCE_LABEL": "Distance",
+
+  "STATS_SECTION_HEADING": "SSVT by the Numbers",
+
+  "PARTNERS_SECTION_HEADING": "Our Partners",
+
+  "AWARDS_SECTION_HEADING": "Awards & Recognition",
+
+  "CONTACT_FORM_HEADING": "Get in Touch",
+  "CONTACT_FORM_NAME_LABEL": "Full Name",
+  "CONTACT_FORM_NAME_PLACEHOLDER": "Your name",
+  "CONTACT_FORM_EMAIL_LABEL": "Email Address",
+  "CONTACT_FORM_EMAIL_PLACEHOLDER": "you@example.com",
+  "CONTACT_FORM_PHONE_LABEL": "Phone Number",
+  "CONTACT_FORM_PHONE_PLACEHOLDER": "+91 ...",
+  "CONTACT_FORM_SERVICE_LABEL": "Service of Interest",
+  "CONTACT_FORM_SERVICE_DEFAULT": "Select a service",
+  "CONTACT_FORM_MESSAGE_LABEL": "Message",
+  "CONTACT_FORM_MESSAGE_PLACEHOLDER": "Tell us about your requirement",
+  "CONTACT_FORM_SUBMIT": "Send Enquiry",
+  "CONTACT_FORM_SUBMITTING": "Sending...",
+  "CONTACT_FORM_SUCCESS": "Thank you! We'll be in touch shortly.",
+  "CONTACT_FORM_ERROR": "Something went wrong. Please try again or",
+  "CONTACT_FORM_ERROR_MAILTO_LABEL": "email us directly",
+  "CONTACT_FORM_VALIDATION_REQUIRED": "This field is required.",
+  "CONTACT_FORM_VALIDATION_EMAIL": "Please enter a valid email address.",
+
+  "COOKIE_BANNER_HEADING": "We use cookies",
+  "COOKIE_BANNER_BODY": "We use analytics cookies to understand how you use our site and improve your experience.",
+  "COOKIE_ACCEPT": "Accept",
+  "COOKIE_DECLINE": "Decline",
+  "COOKIE_PRIVACY_LINK": "Privacy Policy",
+
+  "SEARCH_NO_RESULTS": "No results found for",
+  "SEARCH_OPEN_LABEL": "Open search",
+  "SEARCH_CLOSE_LABEL": "Close search",
+
+  "BACK_TO_TOP": "Back to top",
+
+  "CAREERS_NO_ROLES": "No open roles at this time.",
+  "CAREERS_SPECULATIVE_LABEL": "Send a speculative application",
+
+  "INSIGHTS_NO_ARTICLES": "No insights published yet.",
+
+  "NOT_FOUND_HEADING": "Page Not Found",
+  "NOT_FOUND_BODY": "The page you're looking for doesn't exist or has been moved.",
+  "NOT_FOUND_HOME_LINK": "Back to Homepage",
+  "NOT_FOUND_SEARCH_HINT": "Try searching for what you need:",
+
+  "BROCHURE_DOWNLOAD_LABEL": "Download Brochure",
+
+  "FOOTER_COPYRIGHT": "© 2026 SSVT Logistics. All rights reserved.",
+  "FOOTER_PRIVACY_LINK": "Privacy Policy",
+  "FOOTER_TERMS_LABEL": "Terms & Conditions",
+  "FOOTER_TAGLINE": "Moving the World's Most Critical Cargo"
+}

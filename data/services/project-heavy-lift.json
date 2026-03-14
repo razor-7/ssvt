@@ -1,0 +1,16 @@
+{
+  "id": "project-heavy-lift",
+  "slug": "project-heavy-lift",
+  "name": "Project & Heavy Lift",
+  "fullDescription": "SSVT Logistics' Project & Heavy Lift division specialises in the planning and execution of complex cargo movements that exceed standard transport parameters. Our team of experienced project managers, route survey engineers, and heavy transport specialists work together to deliver solutions for the most demanding logistics challenges.\n\nFrom single heavy lifts requiring custom-built trailers to multi-modal project movements spanning multiple countries, we have the expertise, equipment, and network to deliver. Our heavy lift capabilities include self-propelled modular transporters (SPMTs), heavy lift cranes, and specialist heavy haul vehicles capable of moving loads exceeding 1,000 tonnes.\n\nEvery project begins with a detailed feasibility study, route survey, and risk assessment. We work with regulatory authorities to obtain all necessary permits, plan bridge crossings and utility lifts, and coordinate with local authorities to minimise disruption. Our 24/7 operations centre monitors every movement in real time.",
+  "icon": "/images/services/heavy-lift.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Heavy lift project logistics",
+  "industryTags": ["oil-and-gas", "power-generation", "manufacturing"],
+  "caseStudySlugs": ["refinery-turnaround", "power-plant-commissioning"],
+  "relatedServiceSlugs": ["renewable-logistics", "oversized-cargo", "port-terminal-handling"],
+  "seo": {
+    "title": "Project & Heavy Lift Logistics",
+    "description": "Expert heavy lift and project logistics for complex industrial cargo. SSVT specialises in out-of-gauge and overweight transport."
+  }
+}

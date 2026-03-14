@@ -1,0 +1,44 @@
+{
+  "heroImagePath": null,
+  "heroImageAlt": "SSVT sustainable logistics operations",
+  "heading": "Our Commitment to Sustainability",
+  "body": "SSVT Logistics recognises that the logistics industry has a significant environmental footprint, and we are committed to minimising our impact while supporting the global transition to a sustainable economy. Our sustainability programme addresses carbon emissions, waste, biodiversity, and community wellbeing across all our operations.\n\nWe are proud to be the logistics partner of choice for the renewable energy sector, directly contributing to the expansion of clean energy capacity worldwide. By moving wind, solar, and hydrogen infrastructure, SSVT plays a direct role in decarbonising the global energy system.",
+  "esgSections": [
+    {
+      "title": "Environmental",
+      "body": "We are committed to reducing our operational carbon footprint through fleet electrification, route optimisation, and fuel efficiency programmes. We target a 30% reduction in emissions intensity by 2030 against our 2022 baseline.",
+      "iconPath": null
+    },
+    {
+      "title": "Social",
+      "body": "SSVT employs over 500 people and is committed to fair employment practices, diversity and inclusion, workforce development, and community investment in the regions where we operate.",
+      "iconPath": null
+    },
+    {
+      "title": "Governance",
+      "body": "We maintain the highest standards of corporate governance, including transparent reporting, independent audit, ethical business conduct policies, and ISO-certified management systems.",
+      "iconPath": null
+    }
+  ],
+  "csrInitiatives": [
+    {
+      "title": "Community Road Safety Programme",
+      "body": "SSVT partners with local councils and road authorities to improve road safety in communities along our major transport corridors. Our programme includes road improvement funding, community education, and fatigue management awareness campaigns."
+    },
+    {
+      "title": "Logistics Skills Development",
+      "body": "Through our Training Academy, SSVT provides skills development programmes for young people entering the logistics and transport industry, with a particular focus on underrepresented groups."
+    }
+  ],
+  "reports": [
+    {
+      "title": "SSVT Sustainability Report 2025",
+      "year": 2025,
+      "fileUrl": "#"
+    }
+  ],
+  "seo": {
+    "title": "Sustainability at SSVT Logistics",
+    "description": "SSVT Logistics is committed to sustainable operations, carbon reduction, and supporting the global transition to renewable energy."
+  }
+}

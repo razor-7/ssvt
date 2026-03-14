@@ -1,0 +1,35 @@
+{
+  "companyName": "SSVT Logistics",
+  "tagline": "Moving the World's Most Critical Cargo",
+  "heroMessages": [
+    {
+      "headline": "Precision Logistics for a Complex World",
+      "subtext": "From renewable energy installations to heavy industrial projects, we deliver where others can't."
+    },
+    {
+      "headline": "End-to-End Supply Chain Solutions",
+      "subtext": "Seamlessly connecting ports, terminals, and destinations across the globe."
+    },
+    {
+      "headline": "Built on Trust, Driven by Excellence",
+      "subtext": "Over 15 years of delivering complex logistics projects across 12 countries."
+    }
+  ],
+  "heroCTALabel": "Explore Our Services",
+  "heroCarouselIntervalMs": 4000,
+  "seoDefaults": {
+    "titleSuffix": "SSVT Logistics",
+    "description": "SSVT Logistics provides specialised transport, project logistics, port handling, and supply chain solutions for complex industries worldwide.",
+    "ogImage": "/images/og-default.svg"
+  },
+  "contactEmail": "info@ssvtlogistics.com",
+  "formspreeId": null,
+  "socialLinks": {
+    "linkedin": "https://www.linkedin.com/company/ssvt-logistics",
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "analyticsId": null,
+  "brochurePdfPath": null
+}

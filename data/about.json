@@ -1,0 +1,26 @@
+{
+  "heroImagePath": null,
+  "heroImageAlt": "SSVT Logistics headquarters",
+  "storyParagraphs": [
+    "SSVT Logistics was founded in 2009 with a single mission: to provide world-class logistics solutions for the most demanding industries on the planet. Starting with a small fleet of heavy transport vehicles and a team of experienced logistics professionals, we set out to build a company defined by precision, reliability, and an uncompromising commitment to safety.",
+    "Over 15 years, we have grown into one of the region's most trusted logistics providers, serving clients in renewable energy, oil and gas, mining, construction, power generation, and manufacturing. Our success is built on long-term partnerships with our clients, our people, and the communities in which we operate.",
+    "Today, SSVT Logistics employs over 500 professionals across our operations, project management, and support functions. We operate a fleet of 250+ specialised vehicles, manage warehousing facilities at four strategic locations, and handle cargo through partnerships with leading port operators. Our ISO-certified quality management systems and industry-leading safety record reflect our core values of excellence, integrity, and care for people and environment."
+  ],
+  "milestones": [
+    {"year": 2009, "event": "SSVT Logistics founded with focus on heavy transport and project logistics"},
+    {"year": 2012, "event": "Expanded into port terminal handling and freight forwarding services"},
+    {"year": 2015, "event": "Achieved ISO 9001 quality management certification"},
+    {"year": 2018, "event": "Launched renewable energy logistics division, completing first major wind farm project"},
+    {"year": 2022, "event": "Expanded operations to 12 countries with 500+ team members"},
+    {"year": 2025, "event": "Named Best Logistics Provider at Asia Pacific Logistics Awards"}
+  ],
+  "certifications": [
+    {"name": "ISO 9001:2015", "body": "Quality Management Systems", "year": 2015, "badgePath": null, "badgeAlt": "ISO 9001 certification badge"},
+    {"name": "ISO 14001:2015", "body": "Environmental Management Systems", "year": 2019, "badgePath": null, "badgeAlt": "ISO 14001 certification badge"},
+    {"name": "OHSAS 18001", "body": "Occupational Health & Safety Management", "year": 2017, "badgePath": null, "badgeAlt": "OHSAS 18001 certification badge"}
+  ],
+  "seo": {
+    "title": "About SSVT Logistics",
+    "description": "Learn about SSVT Logistics — 15 years of delivering complex project logistics for energy, mining, and industrial clients worldwide."
+  }
+}

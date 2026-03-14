@@ -1,0 +1,28 @@
+{
+  "heading": "Quality, Environment, Health & Safety",
+  "body": "At SSVT Logistics, Quality, Environment, Health and Safety (Q&EHS) is not a department — it is a culture embedded in everything we do. We believe that zero incidents is achievable, and our Q&EHS management system is designed to deliver on that belief through rigorous planning, continuous monitoring, and a commitment to learning and improvement.\n\nOur Q&EHS framework is built on ISO 9001, ISO 14001, and OHSAS 18001 standards, and is continuously reviewed and updated to reflect best practices and lessons learned from our operations and the broader industry.",
+  "metrics": [
+    {"label": "Lost Time Injury Rate", "value": "0.12 per million hours worked"},
+    {"label": "Near-Miss Reporting Rate", "value": "98% of incidents reported within 24 hours"},
+    {"label": "Environmental Incidents", "value": "Zero Tier 2+ incidents since 2022"},
+    {"label": "Quality Non-Conformances", "value": "< 0.5% of all operations"}
+  ],
+  "policies": [
+    {
+      "title": "Safety First Policy",
+      "body": "Every SSVT employee has the authority and responsibility to stop any work they believe is unsafe. No commercial consideration overrides safety. All incidents and near-misses are reported, investigated, and used to improve our systems."
+    },
+    {
+      "title": "Environmental Stewardship Policy",
+      "body": "SSVT is committed to minimising the environmental impact of our operations. We actively measure and reduce our carbon footprint, manage waste responsibly, and work to protect biodiversity in the communities where we operate."
+    },
+    {
+      "title": "Quality Commitment Policy",
+      "body": "We deliver what we promise, on time, every time. Our quality management system ensures consistent service delivery, and our client satisfaction process captures feedback to drive continuous improvement."
+    }
+  ],
+  "seo": {
+    "title": "Q&EHS — Quality, Environment, Health & Safety",
+    "description": "SSVT Logistics' Q&EHS framework delivers industry-leading safety performance and environmental stewardship across all operations."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "freight-forwarding",
+  "slug": "freight-forwarding",
+  "name": "Freight Forwarding",
+  "fullDescription": "SSVT Logistics offers comprehensive freight forwarding services covering all modes of transport — air, sea, and road. Our experienced team of freight specialists manages the entire shipping process from origin to destination, handling all documentation, regulatory requirements, and coordination with carriers and agents worldwide.\n\nOur air freight services offer fast, reliable transport for time-critical shipments with direct access to major airlines and charter operators. Our sea freight services cover full container loads (FCL), less-than-container loads (LCL), breakbulk, and roll-on/roll-off (RoRo) shipments. Our road freight capabilities connect inland origins and destinations with ports and air terminals across the region.\n\nWith our global network of agents and partners, we provide seamless door-to-door services for clients importing or exporting to any destination worldwide. Our digital freight management platform provides real-time visibility of all shipments from booking through delivery.",
+  "icon": "/images/services/freight.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Freight forwarding operations",
+  "industryTags": ["manufacturing", "pharmaceutical", "automotive"],
+  "caseStudySlugs": [],
+  "relatedServiceSlugs": ["customs-clearance", "port-terminal-handling", "warehousing-distribution"],
+  "seo": {
+    "title": "Freight Forwarding Services",
+    "description": "Global freight forwarding by air, sea, and road. SSVT manages all documentation and coordination for seamless international shipments."
+  }
+}

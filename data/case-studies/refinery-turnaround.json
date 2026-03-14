@@ -1,0 +1,19 @@
+{
+  "id": "refinery-turnaround",
+  "slug": "refinery-turnaround",
+  "title": "Oil Refinery Turnaround Logistics",
+  "industryTag": "oil-and-gas",
+  "serviceTag": "project-heavy-lift",
+  "originLocation": "Various, International",
+  "destinationLocation": "Refinery Site, Gujarat, India",
+  "distanceKm": 850,
+  "fullBody": "## Background\n\nA major oil refinery in Gujarat, India required a planned maintenance turnaround — a complex operation involving the simultaneous replacement and maintenance of hundreds of pieces of equipment, vessels, and piping systems. The turnaround window was strictly limited to 30 days, as every day of extended shutdown represented significant lost production value.\n\n## Logistics Complexity\n\nThe turnaround involved importing specialist equipment from 12 countries, coordinating the movements of 500+ pieces of replacement equipment and scaffolding systems, and managing temporary storage and just-in-time delivery to over 40 work fronts operating simultaneously within the refinery.\n\nSSVT was appointed as the single-point logistics coordinator, responsible for all freight forwarding, customs clearance, port handling, road transport, and site logistics.\n\n## Execution\n\nOur project logistics team embedded a dedicated logistics coordinator at the refinery three months before the turnaround commenced. Working alongside the refinery's engineering and maintenance teams, we developed a detailed logistics schedule integrated with the overall turnaround programme.\n\nWe established a temporary consolidation warehouse near the port to receive, inspect, and stage all incoming equipment. A real-time logistics tracking system provided the refinery team with visibility of all equipment status and location throughout the operation.\n\n## Outcome\n\nThe turnaround was completed within the 30-day window, with all logistics movements executed on schedule. Two critical equipment deliveries that faced potential shipping delays were resolved through air freight solutions implemented within 24 hours of identifying the risk.",
+  "outcome": "Turnaround completed within the 30-day window. 500+ equipment movements executed on schedule. Two critical path delays averted through rapid air freight solutions.",
+  "imagePath": null,
+  "imageAlt": "Oil refinery turnaround logistics operations",
+  "relatedServiceSlugs": ["project-heavy-lift", "freight-forwarding", "customs-clearance"],
+  "seo": {
+    "title": "Oil Refinery Turnaround Logistics",
+    "description": "SSVT coordinated complex logistics for a major refinery turnaround, managing 500+ equipment movements within a strict 30-day window."
+  }
+}

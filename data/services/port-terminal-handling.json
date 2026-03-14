@@ -1,0 +1,16 @@
+{
+  "id": "port-terminal-handling",
+  "slug": "port-terminal-handling",
+  "name": "Port & Terminal Handling",
+  "fullDescription": "SSVT Logistics provides comprehensive port and terminal handling services at key ports across the region. Our experienced stevedoring teams and terminal operators handle cargo of all types, from standard containers to breakbulk, project, and heavy lift cargo.\n\nOur port services include vessel discharge and loading, cargo receipt and delivery, temporary storage and warehousing, lashing and securing, and dangerous goods handling. We operate modern cargo handling equipment including mobile harbour cranes, reach stackers, forklifts, and specialist heavy lift equipment.\n\nWe maintain long-standing relationships with port authorities, shipping lines, and terminal operators, allowing us to provide our clients with priority berth access, efficient cargo handling, and competitive rates. Our integrated port-to-project logistics solutions eliminate the complexity of coordinating multiple service providers.",
+  "icon": "/images/services/port.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Port and terminal handling operations",
+  "industryTags": ["oil-and-gas", "mining-metals", "construction"],
+  "caseStudySlugs": ["wind-farm-transport"],
+  "relatedServiceSlugs": ["freight-forwarding", "project-heavy-lift", "customs-clearance"],
+  "seo": {
+    "title": "Port & Terminal Handling",
+    "description": "Comprehensive port and terminal handling including stevedoring, cargo storage, and vessel operations at key regional ports."
+  }
+}

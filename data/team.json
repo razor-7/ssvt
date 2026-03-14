@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Rajiv Sharma",
+    "title": "Chief Executive Officer",
+    "bio": "Rajiv has over 25 years of experience in logistics and project management. He founded SSVT Logistics in 2009 and has led the company through consistent growth to become a regional leader in project and heavy lift logistics.",
+    "photoPath": null,
+    "photoAlt": "Rajiv Sharma, CEO"
+  },
+  {
+    "name": "Sarah Chen",
+    "title": "Chief Operations Officer",
+    "bio": "Sarah oversees all operational activities across SSVT's transport, warehousing, and port divisions. With a background in industrial engineering and supply chain management, she brings rigorous process thinking to complex logistics operations.",
+    "photoPath": null,
+    "photoAlt": "Sarah Chen, COO"
+  },
+  {
+    "name": "Mohammed Al-Rashid",
+    "title": "Director, Project Logistics",
+    "bio": "Mohammed leads SSVT's project logistics division, specialising in heavy lift and oversized cargo movements. He has over 20 years of experience managing complex transport projects for oil and gas, mining, and renewable energy clients.",
+    "photoPath": null,
+    "photoAlt": "Mohammed Al-Rashid, Director of Project Logistics"
+  },
+  {
+    "name": "Priya Nair",
+    "title": "Chief Financial Officer",
+    "bio": "Priya manages SSVT's financial operations, strategic planning, and investor relations. She brings extensive experience in financial management within the logistics and transport sector.",
+    "photoPath": null,
+    "photoAlt": "Priya Nair, CFO"
+  },
+  {
+    "name": "David Okafor",
+    "title": "Director, Safety & Compliance",
+    "bio": "David oversees SSVT's safety management systems, regulatory compliance, and quality assurance programs. Under his leadership, SSVT has maintained an industry-leading safety record and achieved multiple international certifications.",
+    "photoPath": null,
+    "photoAlt": "David Okafor, Director of Safety and Compliance"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "name": "ssvt",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "node --import tsx/esm scripts/build-static.mjs && vite",
+    "build": "node --import tsx/esm scripts/build-static.mjs && vite build && npx pagefind --site dist",
+    "build:preview": "node --import tsx/esm scripts/build-static.mjs && vite build && vite preview",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:a11y": "playwright test --grep @a11y",
+    "lighthouse": "lhci autorun",
+    "bundle:check": "node scripts/bundle-check.mjs",
+    "seed": "node scripts/seed.mjs",
+    "deploy:gh": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "micromark": "^4.0.1",
+    "pagefind": "^1.3.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.21.0",
+    "vite": "^5.4.14",
+    "vitest": "^2.1.8"
+  }
+}

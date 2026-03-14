@@ -1,0 +1,11 @@
+[
+  {"id":"renewable-logistics","slug":"renewable-logistics","name":"Renewable Energy Logistics","shortDescription":"End-to-end logistics for solar, wind, and hydro installations — from oversized component transport to site delivery.","icon":"/images/services/renewable.svg"},
+  {"id":"project-heavy-lift","slug":"project-heavy-lift","name":"Project & Heavy Lift","shortDescription":"Specialist heavy-lift and project logistics for complex industrial cargo exceeding standard transport limits.","icon":"/images/services/heavy-lift.svg"},
+  {"id":"port-terminal-handling","slug":"port-terminal-handling","name":"Port & Terminal Handling","shortDescription":"Comprehensive port and terminal operations including loading, unloading, storage, and cargo management.","icon":"/images/services/port.svg"},
+  {"id":"freight-forwarding","slug":"freight-forwarding","name":"Freight Forwarding","shortDescription":"Global freight forwarding by air, sea, and road with expert documentation and customs coordination.","icon":"/images/services/freight.svg"},
+  {"id":"customs-clearance","slug":"customs-clearance","name":"Customs Clearance","shortDescription":"Seamless customs brokerage and compliance services ensuring smooth border crossings worldwide.","icon":"/images/services/customs.svg"},
+  {"id":"warehousing-distribution","slug":"warehousing-distribution","name":"Warehousing & Distribution","shortDescription":"Secure, climate-controlled warehousing and last-mile distribution across key logistics hubs.","icon":"/images/services/warehouse.svg"},
+  {"id":"oversized-cargo","slug":"oversized-cargo","name":"Oversized Cargo Transport","shortDescription":"Specialist transport for out-of-gauge, overweight, and oversize cargo requiring route surveys and permits.","icon":"/images/services/oversized.svg"},
+  {"id":"supply-chain-consulting","slug":"supply-chain-consulting","name":"Supply Chain Consulting","shortDescription":"Strategic supply chain optimisation and risk management consulting for complex industrial sectors.","icon":"/images/services/consulting.svg"},
+  {"id":"last-mile-delivery","slug":"last-mile-delivery","name":"Last-Mile Delivery","shortDescription":"Reliable last-mile delivery solutions connecting distribution centres to project sites and end customers.","icon":"/images/services/last-mile.svg"}
+]

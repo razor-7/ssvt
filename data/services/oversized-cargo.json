@@ -1,0 +1,16 @@
+{
+  "id": "oversized-cargo",
+  "slug": "oversized-cargo",
+  "name": "Oversized Cargo Transport",
+  "fullDescription": "SSVT Logistics is a specialist in the transport of oversized, out-of-gauge, and overweight cargo. Our dedicated project transport division has the experience, equipment, and regulatory expertise to move cargo that exceeds standard transport limits — safely, efficiently, and in compliance with all regulations.\n\nOur oversized transport services begin with a detailed route survey to identify and resolve any physical constraints — bridges, overhead utilities, tight turns, and road condition issues. We work with traffic management authorities to obtain all necessary oversize permits, escort vehicle requirements, and travel time approvals. Our pilot and escort vehicle network covers all major transport corridors.\n\nOur fleet of specialist heavy transport vehicles includes extendable flatbed trailers, low-bed trailers, platform trailers, and self-propelled modular transporters (SPMTs). For particularly challenging lifts and moves, we can combine multiple trailer configurations to distribute load across many axles, minimising road impact and enabling access to sites with weight-restricted roads.",
+  "icon": "/images/services/oversized.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Oversized cargo transport on highway",
+  "industryTags": ["mining-metals", "construction", "power-generation"],
+  "caseStudySlugs": ["mining-equipment-relocation"],
+  "relatedServiceSlugs": ["project-heavy-lift", "renewable-logistics", "port-terminal-handling"],
+  "seo": {
+    "title": "Oversized Cargo Transport",
+    "description": "Specialist oversized and out-of-gauge cargo transport. SSVT handles route surveys, permits, and specialist heavy haul equipment."
+  }
+}

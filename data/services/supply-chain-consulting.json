@@ -1,0 +1,16 @@
+{
+  "id": "supply-chain-consulting",
+  "slug": "supply-chain-consulting",
+  "name": "Supply Chain Consulting",
+  "fullDescription": "SSVT Logistics' Supply Chain Consulting practice helps organisations design, optimise, and execute more efficient and resilient supply chains. Our team of experienced supply chain professionals brings deep industry knowledge and analytical rigour to help clients solve complex logistics challenges and achieve sustainable competitive advantage.\n\nOur consulting services cover supply chain strategy and network design, logistics process optimisation, transport procurement and management, inventory optimisation, risk assessment and resilience planning, and sustainability and carbon reduction strategies. We work with clients across the full spectrum of industries, from energy and mining to manufacturing and pharmaceuticals.\n\nOur approach combines rigorous data analysis with practical operational experience. We deliver actionable recommendations supported by detailed implementation roadmaps, and our teams are available to support implementation and change management to ensure recommendations translate into sustainable improvements.",
+  "icon": "/images/services/consulting.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Supply chain consulting",
+  "industryTags": ["manufacturing", "oil-and-gas", "government-defence"],
+  "caseStudySlugs": [],
+  "relatedServiceSlugs": ["freight-forwarding", "warehousing-distribution", "customs-clearance"],
+  "seo": {
+    "title": "Supply Chain Consulting",
+    "description": "Strategic supply chain consulting and optimisation. SSVT helps clients design resilient, efficient supply chains for complex industries."
+  }
+}

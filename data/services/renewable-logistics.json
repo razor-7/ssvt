@@ -1,0 +1,16 @@
+{
+  "id": "renewable-logistics",
+  "slug": "renewable-logistics",
+  "name": "Renewable Energy Logistics",
+  "fullDescription": "SSVT Logistics is a market leader in renewable energy logistics, providing comprehensive transport and project management solutions for the renewable energy sector. Our specialist teams have successfully delivered logistics for solar farms, wind parks, and hydroelectric installations across multiple continents.\n\nWe understand the unique challenges of renewable energy projects — oversized turbine blades, tower sections, nacelles, and transformer equipment that push the limits of conventional transport. Our project managers work closely with engineering teams from initial planning through to final installation, ensuring every component arrives safely, on time, and within budget.\n\nWith our extensive network of specialist equipment, experienced route survey teams, and deep relationships with port authorities and road authorities, SSVT Logistics is uniquely positioned to handle even the most complex renewable energy logistics challenges.",
+  "icon": "/images/services/renewable.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Renewable energy logistics",
+  "industryTags": ["renewable-energy", "power-generation"],
+  "caseStudySlugs": ["wind-farm-transport"],
+  "relatedServiceSlugs": ["project-heavy-lift", "oversized-cargo", "port-terminal-handling"],
+  "seo": {
+    "title": "Renewable Energy Logistics",
+    "description": "Specialist logistics for solar, wind, and hydro projects. SSVT moves oversized renewable energy components worldwide."
+  }
+}

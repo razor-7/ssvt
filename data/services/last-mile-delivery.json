@@ -1,0 +1,16 @@
+{
+  "id": "last-mile-delivery",
+  "slug": "last-mile-delivery",
+  "name": "Last-Mile Delivery",
+  "fullDescription": "SSVT Logistics provides reliable and flexible last-mile delivery solutions, connecting distribution centres, port facilities, and warehouses with project sites, industrial facilities, and end customers. Our last-mile delivery services are designed to handle the unique challenges of delivering to remote, constrained, or difficult-to-access locations.\n\nOur fleet of delivery vehicles ranges from light commercial vehicles for small, urgent deliveries to heavy articulated trucks for large consignments. For project site deliveries, we operate all-terrain vehicles and cranes trucks capable of navigating unpaved roads and delivering to locations without fixed infrastructure.\n\nWe offer flexible delivery windows, including urgent same-day and after-hours delivery for critical project requirements. Our real-time tracking system provides delivery status updates and proof of delivery documentation. For regular delivery routes, we offer scheduled consolidated services that reduce cost and environmental impact.",
+  "icon": "/images/services/last-mile.svg",
+  "heroImagePath": null,
+  "heroImageAlt": "Last-mile delivery truck",
+  "industryTags": ["construction", "manufacturing", "infrastructure"],
+  "caseStudySlugs": [],
+  "relatedServiceSlugs": ["warehousing-distribution", "freight-forwarding", "customs-clearance"],
+  "seo": {
+    "title": "Last-Mile Delivery Services",
+    "description": "Reliable last-mile delivery to project sites and industrial facilities. SSVT connects warehouses to destinations with flexible delivery solutions."
+  }
+}

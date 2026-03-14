@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#e8f0fe"/>
+  <!-- India outline simplified -->
+  <path d="M320 80 L380 70 L440 90 L480 120 L500 160 L490 200 L510 240 L520 280 L500 320 L480 360 L460 390 L440 410 L420 420 L400 415 L380 400 L360 380 L340 350 L320 320 L300 290 L280 260 L270 230 L280 200 L270 170 L280 140 L300 110 Z" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <!-- Mumbai pin -->
+  <circle cx="295" cy="290" r="10" fill="#1e40af"/>
+  <circle cx="295" cy="290" r="5" fill="white"/>
+  <text x="310" y="285" font-family="sans-serif" font-size="14" fill="#1e3a8a" font-weight="600">Mumbai HQ</text>
+  <!-- Delhi pin -->
+  <circle cx="345" cy="175" r="10" fill="#1e40af"/>
+  <circle cx="345" cy="175" r="5" fill="white"/>
+  <text x="360" y="170" font-family="sans-serif" font-size="14" fill="#1e3a8a" font-weight="600">Delhi</text>
+  <!-- Chennai pin -->
+  <circle cx="370" cy="355" r="10" fill="#1e40af"/>
+  <circle cx="370" cy="355" r="5" fill="white"/>
+  <text x="385" y="350" font-family="sans-serif" font-size="14" fill="#1e3a8a" font-weight="600">Chennai</text>
+  <!-- Legend -->
+  <rect x="580" y="30" width="190" height="80" rx="8" fill="white" opacity="0.9" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="600" cy="55" r="6" fill="#1e40af"/>
+  <circle cx="600" cy="55" r="3" fill="white"/>
+  <text x="615" y="60" font-family="sans-serif" font-size="13" fill="#334155">Office Location</text>
+  <text x="590" y="90" font-family="sans-serif" font-size="12" fill="#64748b">3 Offices Across India</text>
+</svg>
