@@ -103,14 +103,53 @@ export default function HeroSection({ siteConfig, ui }) {
           ))}
         </div>
 
-        {/* Scroll hint */}
-        <div className="mt-10">
-          <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
+        {/* Scroll hint — animated route waypoint */}
+        <div className="mt-12 flex flex-col items-center select-none" aria-hidden="true">
+
+          {/* Horizontal rule with glowing centre node */}
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-20 h-px bg-gradient-to-r from-transparent via-white/20 to-white/30" />
+            <div className="relative flex items-center justify-center">
+              {/* Outer pulse ring 1 */}
+              <span className="absolute w-3 h-3 rounded-full bg-orange-accent"
+                style={{animation: 'scrollPulse 2s ease-out 0s infinite'}} />
+              {/* Outer pulse ring 2 (offset) */}
+              <span className="absolute w-3 h-3 rounded-full bg-orange-accent"
+                style={{animation: 'scrollPulse 2s ease-out 0.7s infinite'}} />
+              {/* Centre dot */}
+              <span className="relative w-2.5 h-2.5 rounded-full bg-orange-accent shadow-[0_0_8px_2px_rgba(240,123,43,0.6)]" />
+            </div>
+            <div className="w-20 h-px bg-gradient-to-l from-transparent via-white/20 to-white/30" />
+          </div>
+
+          {/* Label */}
+          <p className="text-[10px] tracking-[0.3em] uppercase text-white/35 font-medium mb-3">
             {ui.HERO_SCROLL_HINT}
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="animate-bounce">
-              <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
           </p>
+
+          {/* Cascading chevrons — staggered flow downward */}
+          <div className="flex flex-col items-center" style={{gap: '1px'}}>
+            {[0, 0.22, 0.44].map((delay, i) => (
+              <svg
+                key={i}
+                width="18" height="10"
+                viewBox="0 0 18 10"
+                fill="none"
+                style={{
+                  animation: `scrollChevron 1.8s ease-in-out ${delay}s infinite`,
+                  opacity: 1 - i * 0.28,
+                }}
+              >
+                <path
+                  d="M2 2l7 6 7-6"
+                  stroke={i === 0 ? 'rgb(240,123,43)' : 'white'}
+                  strokeWidth={i === 0 ? '2' : '1.5'}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            ))}
+          </div>
         </div>
       </div>
 

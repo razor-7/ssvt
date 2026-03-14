@@ -37,8 +37,10 @@ export default {
         'container': 'var(--spacing-container)',
       },
       animation: {
-        'fade-in': 'fadeIn var(--animation-duration) var(--animation-easing) forwards',
-        'slide-up': 'slideUp var(--animation-duration) var(--animation-easing) forwards',
+        'fade-in':       'fadeIn var(--animation-duration) var(--animation-easing) forwards',
+        'slide-up':      'slideUp var(--animation-duration) var(--animation-easing) forwards',
+        'scroll-chevron': 'scrollChevron 1.8s ease-in-out infinite',
+        'scroll-pulse':   'scrollPulse 2s ease-out infinite',
       },
       keyframes: {
         fadeIn: {
