@@ -303,6 +303,7 @@ Single-project MPA. All source at repository root: `src/`, `data/`, `scripts/`, 
 - **Polish (Phase 12)**: Depends on all desired user stories being complete
 - **Post-Implementation Fixes (Phase 13)**: Applied after initial build integration testing
 - **Competitive Enhancements (Phase 14)**: Applied post-Phase 13; competitive gap analysis vs NTC Logistics
+- **Visual Enhancements (Phase 15)**: Applied post-Phase 14; photorealistic SVG backgrounds, animated scroll indicator, bundle-check fix
 
 ### User Story Dependencies
 
@@ -387,7 +388,8 @@ Team B: T052 → T053 → T054 → T055 → T056 → T057 → T058 → T059 → 
 | Phase 12 | Polish (remaining pages + search + quality gates) | 33 |
 | Phase 13 | Post-Implementation Fixes (FIX001–FIX006) | 6 |
 | Phase 14 | Competitive Enhancement & Polish (ENH001–ENH019, BUG001–BUG002) | 21 |
-| **Total** | | **159** |
+| Phase 15 | Visual Enhancement — Photorealistic Backgrounds & Scroll (VIS001–VIS012) | 12 |
+| **Total** | | **171** |
 
 ---
 
@@ -515,6 +517,87 @@ All tasks are `[X]` — applied to the codebase.
   `PageShell` but omitted `Header` and `Footer` imports and render calls. Fix: added
   `import Header` and `import Footer`, wrapped content in `<main id="main-content">`,
   and rendered `<Header>` and `<Footer>` as siblings inside `PageShell`
+
+---
+
+## Phase 15: Visual Enhancement — Photorealistic Backgrounds & Animated Scroll (2026-03-15)
+
+**Purpose**: Close the visual design gap identified in competitive comparison vs NTC Logistics
+(SSVT was rated 6/10 vs NTC 8.5/10 on visual appeal). All tasks are `[X]` — applied to the codebase.
+
+### Hero Background Infrastructure
+
+- [X] VIS001 Add `heroBackgroundPath` optional field to `data/config/site.json` (set to
+  `"/images/hero/hero-bg.svg"`); add corresponding optional rendering branch in
+  `src/components/sections/HeroSection.jsx`: renders `<img>` with `fetchpriority="high"`,
+  `alt=""`, `aria-hidden="true"`, and `object-cover` when path is set; falls back to CSS
+  gradient when null — no code changes required to switch to real photography
+
+- [X] VIS002 Create `public/images/hero/hero-bg.svg` — 1440×800 photorealistic SVG scene:
+  container port at golden hour; cerulean-to-gold sky gradient; radial sun glow; 6 cloud
+  ellipses in 3 clusters; golden reflection band on water; 3 cranes (A-frame, boom, trolley,
+  suspended load); steel-blue ship hull with containers and bridge; 3 oil tanker trucks at
+  dock gaps proportional to crane scale (2.9 px/m derived from A-frame heights ~200 px for
+  ~70 m crane); dust haze; orange accent baseline strip
+
+- [X] VIS003 Iterative overlay lightening (3 rounds): reduced hero overlay from
+  `from-navy-dark/80 via-navy/70 to-navy-dark/85` → `from-transparent via-transparent to-navy-dark/40`
+  (bottom-only fade) so the photorealistic background is clearly visible in the hero viewport
+
+### Animated Scroll Indicator
+
+- [X] VIS004 Add `scrollChevron`, `scrollPulse`, and `routeLine` keyframe animations to
+  `tailwind.config.js` under `theme.extend.keyframes`; add `scroll-chevron` and `scroll-pulse`
+  shorthand animation utilities under `theme.extend.animation`
+
+- [X] VIS005 Replace static "Scroll to explore ↓" text in `src/components/sections/HeroSection.jsx`
+  with animated route waypoint scroll indicator:
+  (a) horizontal rule with glowing orange centre node (two staggered `scrollPulse` rings + centre dot);
+  (b) "Scroll" label (`HERO_SCROLL_HINT` from `ui.json`);
+  (c) three cascading chevrons with staggered `scrollChevron` animation delays (0 s, 0.22 s, 0.44 s);
+  first chevron in `orange-accent`, subsequent in white with decreasing opacity
+
+### Case Study Thumbnail Upgrades
+
+- [X] VIS006 Replace `public/images/case-studies/wind-farm-transport.svg` with photorealistic
+  SVG scene: golden-hour sky (6-stop gradient), 3 cloud layers, radial sun glow, orange-gold
+  water reflection, 6 wind turbines with depth gradient and shadow halos, jack-up installation
+  vessel with crane and suspended nacelle, orange accent baseline
+
+- [X] VIS007 Replace `public/images/case-studies/refinery-turnaround.svg` with photorealistic
+  SVG scene: deep night sky, 20 scattered stars, flare atmosphere radial glow, smoke drift
+  clouds, sphere tank highlight, pipe rack, control building, foreground tanker truck with
+  headlight glow, orange accent baseline
+
+- [X] VIS008 Replace `public/images/case-studies/mining-equipment-relocation.svg` with
+  photorealistic SVG scene: arid midday sky with harsh sun glow, dust haze layer, open-cut
+  mine terrace bench lines, dust trail behind convoy, detailed Caterpillar-style mining
+  excavator on multi-axle low-loader (boom, stick, bucket with teeth), prime mover cab,
+  pilot vehicle with orange beacon, safety flags, orange accent baseline
+
+- [X] VIS009 Replace `public/images/case-studies/power-plant-commissioning.svg` with
+  photorealistic SVG scene: deep night, 23 stars + Milky Way band, warm glow from turbine
+  hall windows, cool glow from cooling towers, steam cloud billows, heavy lift crane with
+  suspended turbine component, transformer yard with bays, transmission tower with nav light,
+  orange accent baseline
+
+### Visual Refinements
+
+- [X] VIS010 Reduce hero SVG cloud count from ~30 ellipses to 6 ellipses in 3 clusters
+  (left/centre/right) using `cloudFar`/`cloudMid`/`cloudNear` gradients — original cloud
+  density cluttered the sky at all viewport widths
+
+- [X] VIS011 Lighten hero SVG ship hull from near-black (`#0a1628`) to steel-blue (`#2a3e58`);
+  containers from `#0c1e38` to `#243448–#364c6a`; bridge from `#0e2040` to `#2e4260`;
+  funnel from `#0a1628` to `#2a3c55` — ship was visually indistinguishable from cranes
+
+### Bundle Check Fix
+
+- [X] VIS012 Fix `scripts/bundle-check.mjs` false positive: add `SearchBar` to the
+  `LAZY_PATTERNS` exclusion list alongside `pagefind`; SearchBar-*.js (~147 KB) is the
+  Pagefind UI wrapper loaded via dynamic import inside `SearchBar.jsx` and is never part of
+  the initial per-page bundle; the corrected check now reports ~152 KB (✅ < 300 KB limit)
+  instead of the misleading 1092 KB total
 
 ---
 

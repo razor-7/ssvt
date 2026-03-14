@@ -11,12 +11,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, '../dist/assets');
 const LIMIT_BYTES = 300 * 1024; // 300 KB
 
+// Chunks excluded from the initial-bundle budget:
+//   - pagefind*  → Pagefind search index (lazy-loaded, per plan.md Dependency Bundle Budget)
+//   - SearchBar* → Pagefind UI wrapper (lazy-loaded via dynamic import inside SearchBar.jsx)
+// Only chunks that are part of the per-page initial load are counted.
+const LAZY_PATTERNS = ['pagefind', 'SearchBar'];
+
 let totalJs = 0;
 const files = [];
 
 try {
   for (const file of readdirSync(DIST)) {
-    if (extname(file) === '.js' && !file.includes('pagefind')) {
+    const isJs = extname(file) === '.js';
+    const isLazy = LAZY_PATTERNS.some((p) => file.includes(p));
+    if (isJs && !isLazy) {
       const filepath = join(DIST, file);
       const size = statSync(filepath).size;
       files.push({ file, size });

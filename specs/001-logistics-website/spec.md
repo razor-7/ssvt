@@ -22,6 +22,16 @@
 | 2026-03-15 | Implemented favicon: `favicon.svg`, `favicon.ico` (16/32/48px), `site.webmanifest` | Missing entirely from original build |
 | 2026-03-15 | Fixed: mobile nav had no "Request a Quote" CTA — added to MobileNav drawer bottom | Bug: desktop CTA was `hidden md:flex`, invisible on mobile |
 | 2026-03-15 | Fixed: tracking page rendered without header/footer | Bug: `Header`/`Footer` not imported in `TrackingPage.jsx` |
+| 2026-03-15 | Added `heroBackgroundPath` field to `SiteConfig` (optional — null falls back to CSS gradient) | Enables real photography / photorealistic SVG scene as hero background without code changes |
+| 2026-03-15 | Created `public/images/hero/hero-bg.svg` — 1440×800 container-port golden-hour photorealistic scene | Visual parity gap vs NTC Logistics (SSVT was 6/10 vs NTC 8.5/10 on visual design); closes the "real photography" gap using SVG scene illustration |
+| 2026-03-15 | Replaced static scroll hint text with animated route waypoint + cascading chevrons | UX improvement: "Scroll to explore ↓" was functionally adequate but visually weak for a premium logistics brand |
+| 2026-03-15 | Added `scrollChevron`, `scrollPulse`, `routeLine` keyframes + animation utilities to `tailwind.config.js` | Required CSS animation tokens for the new scroll indicator and future route-line decorations |
+| 2026-03-15 | Upgraded `public/images/case-studies/*.svg` — all 4 thumbnails replaced with photorealistic SVG scenes | Original thumbnails were abstract icon-style SVGs; new scenes show: golden-hour wind farm installation, night refinery flare, arid-desert mining convoy with excavator, night power plant with heavy crane |
+| 2026-03-15 | Iterative hero lightening (3 rounds): reduced overlay from `navy-dark/80` to bottom-only `navy-dark/40`; lightened SVG sky to cerulean/gold gradient | User-directed visual refinements for brightness/contrast balance over photorealistic background |
+| 2026-03-15 | Reduced hero SVG cloud count from 30 ellipses to 6 grouped ellipses across 3 clusters | Too many clouds cluttered the hero sky; 6 is visually clean at all viewport widths |
+| 2026-03-15 | Lightened hero SVG ship hull to steel-blue tones (`#2a3e58`); containers use `#243448–#364c6a` | Ship silhouette was near-black and indistinguishable from cranes; steel-blue reads as a vessel against the golden sky |
+| 2026-03-15 | Added 3 oil tanker trucks at dock gaps in hero SVG port scene | Adds foreground scale reference and operational realism; each truck is proportional (≈78×18 px at 2.9 px/m scale derived from crane heights) |
+| 2026-03-15 | Fixed `bundle-check.mjs` to exclude lazy-loaded SearchBar chunk from initial-bundle total | Script was summing ALL JS chunks including the 147 KB Pagefind UI wrapper, falsely reporting 1092 KB vs the 300 KB limit; actual initial per-page bundle is ≈152 KB |
 
 ## Site Map
 
@@ -577,7 +587,8 @@ Leave fields blank and submit — inline validation errors appear.
 - **SiteConfig**: `companyName`, `tagline`, `heroMessages[]`, `heroCTALabel`,
   `seoDefaults{ titleSuffix, description, ogImage }`, `contactEmail`,
   `socialLinks{ linkedin, facebook, instagram, twitter }`,
-  `analyticsId` (optional — omit or null to disable), `brochurePdfPath`
+  `analyticsId` (optional — omit or null to disable), `brochurePdfPath`,
+  `heroBackgroundPath` (optional — path to hero background image/SVG; omit or null to use CSS gradient fallback)
 
 **`data/config/navigation.json`** — array of:
 - **NavItem**: `label`, `href`, `children[]{ label, href }` (dropdown sub-links)

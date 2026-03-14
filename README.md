@@ -34,8 +34,9 @@ public/                      # Static assets (images, nav.js, brochure PDF)
   images/
     services/                # 9 SVG service icons
     industries/              # 10 SVG industry icons
-    case-studies/            # 4 SVG case study thumbnails
-    hero/, team/, partners/
+    case-studies/            # 4 photorealistic SVG scene thumbnails (wind farm, refinery, mining, power plant)
+    hero/                    # hero-bg.svg — 1440×800 container-port golden-hour scene (swap for WebP photo via site.json)
+    team/, partners/
   nav.js                     # Vanilla JS for header dropdowns & mobile nav
   favicon.svg                # Branded SVG favicon
   favicon.ico                # Multi-size ICO (16/32/48px)
@@ -165,6 +166,16 @@ Set `analyticsId` in `data/config/site.json`:
 ```
 
 When `null`, no analytics script is injected.
+
+### Hero Background Image
+
+Set `heroBackgroundPath` in `data/config/site.json`:
+
+```json
+"heroBackgroundPath": "/images/hero/hero-bg.svg"
+```
+
+The value can be any image path served from `public/` — SVG, WebP, or JPEG. When `null` or omitted, the hero falls back to a CSS gradient. The current default is a 1440×800 photorealistic SVG scene of a container port at golden hour (`public/images/hero/hero-bg.svg`). Replace with real photography by dropping a WebP file into `public/images/hero/` and updating this field — no code changes required.
 
 ### Brochure PDF
 

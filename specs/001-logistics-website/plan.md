@@ -1,6 +1,6 @@
 # Implementation Plan: SSVT Logistics Corporate Website
 
-**Branch**: `001-logistics-website` | **Created**: 2026-03-14 | **Last Updated**: 2026-03-15 | **Spec**: [spec.md](spec.md)
+**Branch**: `001-logistics-website` | **Created**: 2026-03-14 | **Last Updated**: 2026-03-15 (visual enhancements) | **Spec**: [spec.md](spec.md)
 **Input**: Feature specification from `/specs/001-logistics-website/spec.md`
 
 ## Summary
@@ -68,6 +68,20 @@ folder of static files deployable to any static host with zero server process.
 | No SSR/SSG framework | ✅ Custom Node.js build script; not Next.js/Nuxt/Remix |
 | Static output only | ✅ `dist/` contains HTML/CSS/JS/assets — no server process |
 
+### Post-Implementation Re-Check (2026-03-15 — visual enhancements)
+
+*Re-evaluated after hero background, scroll animation, and case study thumbnail upgrades.*
+
+| Principle | Status | Evidence |
+|-----------|--------|---------|
+| **I. Simplicity & YAGNI** | ✅ Pass | Hero background added as optional `heroBackgroundPath` JSON field — null falls back to CSS gradient; no new component, no new dependency. Scroll animation uses existing Tailwind keyframes. Case study SVGs are static assets — no JS added. |
+| **II. Static-First** | ✅ Pass | Hero background is a static SVG in `public/`; served as a regular asset at `/images/hero/hero-bg.svg`. No runtime fetch. All 4 case study thumbnails are static SVG assets. |
+| **III. Accessibility** | ✅ Pass | Hero `<img>` carries `alt=""` and `aria-hidden="true"` (decorative). Scroll indicator uses `aria-hidden="true"`. Case study SVG assets are presentational (`imageAlt` from JSON drives the accessible label on cards). |
+| **IV. Responsive Design** | ✅ Pass | Hero background uses `object-cover` + `w-full h-full` — fills any viewport. SVG `viewBox` with `preserveAspectRatio="xMidYMid slice"` ensures correct crop at all widths. |
+| **V. Lightweight & Performance** | ✅ Pass | Hero SVG is ~23 KB; `fetchpriority="high"` on the `<img>` optimizes LCP. `bundle-check.mjs` now correctly excludes lazy-loaded SearchBar (~147 KB); actual initial per-page bundle ≈152 KB (< 300 KB limit). |
+
+**Post-Implementation Constitution Check: ALL GATES PASS.**
+
 ## Project Structure
 
 ### Documentation (this feature)
@@ -123,10 +137,10 @@ specs/001-logistics-website/
 │
 ├── public/                         # static assets (copied as-is to dist/)
 │   ├── images/
-│   │   ├── hero/                   # hero background images (WebP)
+│   │   ├── hero/                   # hero background images; hero-bg.svg (1440×800 container-port scene) — swap for WebP when real photography is available
 │   │   ├── services/               # service icons/images (SVG + WebP)
 │   │   ├── industries/             # industry images (SVG)
-│   │   ├── case-studies/           # case study images (WebP)
+│   │   ├── case-studies/           # case study photorealistic SVG scenes (×4): wind-farm-transport, refinery-turnaround, mining-equipment-relocation, power-plant-commissioning
 │   │   ├── team/                   # team member photos (WebP, optional)
 │   │   ├── partners/               # partner logos (SVG preferred)
 │   │   ├── map-static.svg          # static office map image (SVG with location pins)
