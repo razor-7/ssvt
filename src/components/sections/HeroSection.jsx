@@ -19,8 +19,8 @@ export default function HeroSection({ siteConfig, ui }) {
         <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light" aria-hidden="true" />
       )}
 
-      {/* Dark overlay — guarantees text contrast over photo */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/80 via-navy/70 to-navy-dark/85" aria-hidden="true" />
+      {/* Overlay — just a bottom fade so stats/trust strip text stays readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-navy-dark/40" aria-hidden="true" />
 
       {/* Animated geometric background elements */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
