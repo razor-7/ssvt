@@ -1,4 +1,3 @@
-import React from 'react';
 
 export default function HeroSection({ siteConfig, ui }) {
   return (
@@ -12,11 +11,11 @@ export default function HeroSection({ siteConfig, ui }) {
           src={siteConfig.heroBackgroundPath}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover animate-hero-zoom"
           fetchpriority="high"
         />
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light animate-hero-zoom" aria-hidden="true" />
       )}
 
       {/* Overlay — just a bottom fade so stats/trust strip text stays readable */}
@@ -36,12 +35,50 @@ export default function HeroSection({ siteConfig, ui }) {
         {/* Diagonal accent line */}
         <div className="absolute top-0 right-0 w-full h-full opacity-10" style={{background: 'linear-gradient(135deg, transparent 60%, rgba(240,123,43,0.15) 60%)'}} />
 
+        {/* Floating particles */}
+        {[
+          { left: '12%',  bottom: '22%', size: 3, delay: '0s',    dur: '8.5s' },
+          { left: '28%',  bottom: '35%', size: 2, delay: '1.4s',  dur: '10s'  },
+          { left: '42%',  bottom: '12%', size: 4, delay: '0.7s',  dur: '12s'  },
+          { left: '58%',  bottom: '28%', size: 2, delay: '2.1s',  dur: '9.5s' },
+          { left: '71%',  bottom: '18%', size: 3, delay: '0.3s',  dur: '11s'  },
+          { left: '83%',  bottom: '32%', size: 2, delay: '1.8s',  dur: '8.5s' },
+          { left: '22%',  bottom: '45%', size: 2, delay: '3s',    dur: '13s'  },
+          { left: '65%',  bottom: '42%', size: 3, delay: '2.5s',  dur: '10s'  },
+        ].map((p, i) => (
+          <div
+            key={i}
+            aria-hidden="true"
+            className="absolute rounded-full"
+            style={{
+              left: p.left,
+              bottom: p.bottom,
+              width: p.size,
+              height: p.size,
+              background: i % 3 === 0 ? 'rgba(240,123,43,0.7)' : 'rgba(255,255,255,0.5)',
+              animation: `floatUp ${p.dur} ease-in-out ${p.delay} infinite`,
+            }}
+          />
+        ))}
+
         {/* Moving cargo route line — decorative SVG */}
-        <svg className="absolute bottom-0 left-0 w-full opacity-10" viewBox="0 0 1440 200" fill="none" preserveAspectRatio="none">
-          <path d="M0 150 Q180 80 360 120 T720 100 T1080 130 T1440 90" stroke="white" strokeWidth="2" fill="none" strokeDasharray="8 4"/>
+        <svg className="absolute bottom-0 left-0 w-full opacity-15" viewBox="0 0 1440 200" fill="none" preserveAspectRatio="none">
+          <path id="hero-route" d="M0 150 Q180 80 360 120 T720 100 T1080 130 T1440 90" stroke="white" strokeWidth="2" fill="none" strokeDasharray="8 4"/>
           <circle cx="360" cy="120" r="4" fill="rgba(240,123,43,0.8)"/>
           <circle cx="720" cy="100" r="4" fill="rgba(240,123,43,0.8)"/>
           <circle cx="1080" cy="130" r="4" fill="rgba(240,123,43,0.8)"/>
+          {/* Traveling dot along the route */}
+          <circle r="5" fill="rgba(240,123,43,0.95)" filter="url(#glow)">
+            <animateMotion dur="16s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#hero-route" />
+            </animateMotion>
+          </circle>
+          <defs>
+            <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
         </svg>
       </div>
 

@@ -101,6 +101,16 @@ html {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-zoom {
+    animation: none !important;
+  }
+  [style*="floatUp"] {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
