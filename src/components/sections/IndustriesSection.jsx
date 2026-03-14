@@ -35,7 +35,7 @@ export default function IndustriesSection({ industries, ui, activeIndustry, onIn
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {industries.map((industry) => (
+          {(activeIndustry ? industries.filter((i) => i.slug === activeIndustry) : industries).map((industry) => (
             <IndustryCard key={industry.id} industry={industry} ui={ui} />
           ))}
         </div>

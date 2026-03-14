@@ -4,7 +4,10 @@ export default function Timeline({ milestones }) {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-navy/20" aria-hidden="true" />
+      <div
+        style={{position:'absolute',top:0,bottom:0,width:'2px',backgroundColor:'#d1d5db',left:'50%',transform:'translateX(-50%)'}}
+        aria-hidden="true"
+      />
 
       <ol className="space-y-8">
         {milestones.map((milestone, i) => (

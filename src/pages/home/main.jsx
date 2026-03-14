@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import HeroCarousel from '../../components/ui/HeroCarousel.jsx';
 import IndustriesSection from '../../components/sections/IndustriesSection.jsx';
@@ -29,6 +29,7 @@ if (heroRoot && heroMessages) {
 // Shared filter root — IndustriesSection + ServicesSection share activeIndustry state
 function FilterRoot() {
   const [activeIndustry, setActiveIndustry] = useState(null);
+  useEffect(() => { initScrollReveal(); }, []);
   return (
     <>
       <IndustriesSection
@@ -47,8 +48,11 @@ function FilterRoot() {
   );
 }
 
-// Note: Filter root hydration would replace the static sections.
-// For this implementation we use the static sections for layout and enhance interactivity.
+// Mount interactive filter root (replaces static ServicesSection + IndustriesSection)
+const filterRoot = document.getElementById('filter-root');
+if (filterRoot && industries && services) {
+  ReactDOM.createRoot(filterRoot).render(React.createElement(FilterRoot));
+}
 
 // Hydrate stat counters
 if (statistics) {

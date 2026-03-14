@@ -156,8 +156,8 @@ async function generateHomePage() {
     analyticsId: siteConfig.analyticsId,
     formspreeId: siteConfig.formspreeId,
     contactEmail: siteConfig.contactEmail,
-    services: services.map((s) => ({ id: s.id, slug: s.slug, name: s.name })),
-    industries: industries.map((i) => ({ id: i.id, slug: i.slug, name: i.name })),
+    services,
+    industries,
     ui,
   });
 

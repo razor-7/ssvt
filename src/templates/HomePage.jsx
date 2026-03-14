@@ -31,8 +31,11 @@ export default function HomePage({
       <Header siteConfig={siteConfig} navigation={navigation} ui={ui} currentPath={currentPath} data-pagefind-ignore />
       <main id="main-content" data-pagefind-body>
         <HeroSection siteConfig={siteConfig} ui={ui} />
-        <ServicesSection services={services} ui={ui} />
-        <IndustriesSection industries={industries} ui={ui} />
+        <div id="filter-root" data-pagefind-ignore>
+          {/* Fallback static render for SEO — replaced by FilterRoot island on hydration */}
+          <ServicesSection services={services} ui={ui} />
+          <IndustriesSection industries={industries} ui={ui} />
+        </div>
         <StatsSection statistics={statistics} ui={ui} />
         <CaseStudiesSection caseStudies={caseStudies} ui={ui} />
         <PartnersStrip partners={partners} ui={ui} />

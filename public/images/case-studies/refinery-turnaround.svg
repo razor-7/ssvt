@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1f3a"/>
+      <stop offset="60%" stop-color="#1a2e50"/>
+      <stop offset="100%" stop-color="#2a3d60"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f07b2b" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f07b2b" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="flameglow" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#f07b2b" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#f07b2b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#dusk)"/>
+
+  <!-- Ground -->
+  <rect x="0" y="390" width="800" height="60" fill="#0a1628"/>
+
+  <!-- Background structures -->
+  <!-- Large distillation tower 1 -->
+  <rect x="100" y="140" width="28" height="250" fill="#1e3a5f"/>
+  <rect x="96" y="135" width="36" height="12" rx="2" fill="#2a4f7a"/>
+  <rect x="96" y="200" width="36" height="8" fill="#2a4f7a"/>
+  <rect x="96" y="260" width="36" height="8" fill="#2a4f7a"/>
+  <rect x="96" y="320" width="36" height="8" fill="#2a4f7a"/>
+
+  <!-- Large distillation tower 2 -->
+  <rect x="170" y="100" width="32" height="290" fill="#1e3a5f"/>
+  <rect x="166" y="94" width="40" height="14" rx="2" fill="#2a4f7a"/>
+  <rect x="166" y="170" width="40" height="8" fill="#2a4f7a"/>
+  <rect x="166" y="240" width="40" height="8" fill="#2a4f7a"/>
+  <rect x="166" y="310" width="40" height="8" fill="#2a4f7a"/>
+  <!-- Flare pipe -->
+  <line x1="186" y1="94" x2="210" y2="60" stroke="#2a4f7a" stroke-width="3"/>
+  <!-- Flame -->
+  <ellipse cx="210" cy="55" rx="8" ry="12" fill="#f07b2b" fill-opacity="0.9"/>
+  <ellipse cx="210" cy="48" rx="5" ry="8" fill="#ffcc44" fill-opacity="0.8"/>
+  <rect x="190" y="30" width="40" height="40" fill="url(#flameglow)"/>
+
+  <!-- Sphere tank -->
+  <circle cx="300" cy="310" r="55" fill="#1a3050"/>
+  <circle cx="300" cy="310" r="55" fill="none" stroke="#2a4f7a" stroke-width="2"/>
+  <ellipse cx="300" cy="280" rx="30" ry="8" fill="#2a4f7a" fill-opacity="0.3"/>
+  <line x1="300" y1="365" x2="300" y2="390" stroke="#2a4f7a" stroke-width="4"/>
+  <line x1="260" y1="390" x2="340" y2="390" stroke="#2a4f7a" stroke-width="4"/>
+
+  <!-- Horizontal tanks -->
+  <ellipse cx="460" cy="340" rx="18" ry="30" fill="#152840"/>
+  <rect x="460" y="310" width="120" height="60" fill="#1a3050"/>
+  <ellipse cx="580" cy="340" rx="18" ry="30" fill="#152840"/>
+  <line x1="460" y1="310" x2="580" y2="310" stroke="#2a4f7a" stroke-width="2"/>
+  <line x1="460" y1="370" x2="580" y2="370" stroke="#2a4f7a" stroke-width="2"/>
+
+  <!-- Tall chimney stacks -->
+  <rect x="620" y="120" width="18" height="270" fill="#1a3050"/>
+  <rect x="616" y="114" width="26" height="10" rx="1" fill="#2a4f7a"/>
+  <ellipse cx="629" cy="120" rx="13" ry="5" fill="#223d60"/>
+  <!-- Smoke -->
+  <ellipse cx="629" cy="105" rx="10" ry="7" fill="#334466" fill-opacity="0.5"/>
+  <ellipse cx="635" cy="90" rx="12" ry="8" fill="#334466" fill-opacity="0.4"/>
+  <ellipse cx="628" cy="75" rx="14" ry="9" fill="#334466" fill-opacity="0.3"/>
+
+  <rect x="660" y="160" width="14" height="230" fill="#1a3050"/>
+  <rect x="656" y="154" width="22" height="8" rx="1" fill="#2a4f7a"/>
+
+  <!-- Pipework on ground -->
+  <line x1="0" y1="400" x2="800" y2="400" stroke="#2a4f7a" stroke-width="6"/>
+  <line x1="120" y1="390" x2="120" y2="406" stroke="#2a4f7a" stroke-width="8"/>
+  <line x1="200" y1="390" x2="200" y2="406" stroke="#2a4f7a" stroke-width="8"/>
+  <line x1="280" y1="390" x2="280" y2="406" stroke="#2a4f7a" stroke-width="8"/>
+  <line x1="370" y1="390" x2="370" y2="406" stroke="#2a4f7a" stroke-width="8"/>
+  <line x1="0" y1="410" x2="800" y2="410" stroke="#2a4f7a" stroke-width="4"/>
+
+  <!-- Lights/windows on towers -->
+  <rect x="104" y="155" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.8"/>
+  <rect x="104" y="220" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.6"/>
+  <rect x="174" y="110" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.8"/>
+  <rect x="174" y="185" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.6"/>
+  <rect x="174" y="255" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.5"/>
+
+  <!-- Glow from flare -->
+  <rect x="150" y="0" width="200" height="120" fill="url(#glow)" fill-opacity="0.4"/>
+
+  <!-- Foreground heavy transport truck -->
+  <rect x="480" y="358" width="200" height="32" rx="4" fill="#0d2240"/>
+  <rect x="660" y="348" width="60" height="42" rx="3" fill="#0d2240"/>
+  <ellipse cx="510" cy="392" rx="16" ry="16" fill="#080f1e"/>
+  <ellipse cx="510" cy="392" rx="10" ry="10" fill="#1a2e50"/>
+  <ellipse cx="650" cy="392" rx="16" ry="16" fill="#080f1e"/>
+  <ellipse cx="650" cy="392" rx="10" ry="10" fill="#1a2e50"/>
+  <ellipse cx="700" cy="392" rx="16" ry="16" fill="#080f1e"/>
+  <ellipse cx="700" cy="392" rx="10" ry="10" fill="#1a2e50"/>
+  <!-- Cab windows -->
+  <rect x="664" y="353" width="24" height="14" rx="2" fill="#2a4f7a" fill-opacity="0.7"/>
+  <!-- Headlight -->
+  <ellipse cx="720" cy="368" rx="5" ry="5" fill="#ffee88" fill-opacity="0.9"/>
+
+  <!-- Orange accent -->
+  <rect x="0" y="445" width="800" height="5" fill="#f07b2b"/>
+
+  <!-- Label -->
+  <rect x="24" y="24" width="250" height="40" rx="6" fill="#000000" fill-opacity="0.4"/>
+  <text x="36" y="49" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff">Oil Refinery Turnaround</text>
+</svg>
