@@ -19,6 +19,7 @@
       "subtext": "24/7 operations centre. Real-time coordination. Specialist expertise for the world's most complex cargo."
     }
   ],
+  "heroBackgroundPath": "/images/hero/hero-bg.svg",
   "heroCTALabel": "Explore Our Services",
   "heroCarouselIntervalMs": 4500,
   "seoDefaults": {

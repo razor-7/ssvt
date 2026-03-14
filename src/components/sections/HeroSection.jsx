@@ -3,9 +3,25 @@ import React from 'react';
 export default function HeroSection({ siteConfig, ui }) {
   return (
     <section
-      className="relative min-h-screen bg-gradient-to-br from-navy-dark via-navy to-navy-light flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       aria-label="Hero"
     >
+      {/* Background: photo or gradient fallback */}
+      {siteConfig.heroBackgroundPath ? (
+        <img
+          src={siteConfig.heroBackgroundPath}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchpriority="high"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light" aria-hidden="true" />
+      )}
+
+      {/* Dark overlay — guarantees text contrast over photo */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/80 via-navy/70 to-navy-dark/85" aria-hidden="true" />
+
       {/* Animated geometric background elements */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         {/* Dot grid */}

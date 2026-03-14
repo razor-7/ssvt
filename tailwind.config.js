@@ -49,6 +49,21 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(24px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        scrollChevron: {
+          '0%':   { opacity: '0', transform: 'translateY(-6px)' },
+          '40%':  { opacity: '1', transform: 'translateY(0px)'  },
+          '80%':  { opacity: '0', transform: 'translateY(6px)'  },
+          '100%': { opacity: '0', transform: 'translateY(6px)'  },
+        },
+        scrollPulse: {
+          '0%':   { opacity: '0.6', transform: 'scale(1)'   },
+          '100%': { opacity: '0',   transform: 'scale(2.8)' },
+        },
+        routeLine: {
+          '0%':   { transform: 'scaleY(0)', opacity: '0' },
+          '30%':  { opacity: '1' },
+          '100%': { transform: 'scaleY(1)', opacity: '0.5' },
+        },
       },
       transitionDuration: {
         DEFAULT: 'var(--transition-duration)',

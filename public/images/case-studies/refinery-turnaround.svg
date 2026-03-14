@@ -1,107 +1,203 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
   <defs>
-    <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0d1f3a"/>
-      <stop offset="60%" stop-color="#1a2e50"/>
-      <stop offset="100%" stop-color="#2a3d60"/>
+    <!-- Deep night sky with faint blue tinge -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#03060e"/>
+      <stop offset="30%"  stop-color="#060c1a"/>
+      <stop offset="60%"  stop-color="#0a1428"/>
+      <stop offset="82%"  stop-color="#0e1c35"/>
+      <stop offset="100%" stop-color="#121f38"/>
     </linearGradient>
-    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f07b2b" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#f07b2b" stop-opacity="0"/>
-    </linearGradient>
-    <radialGradient id="flameglow" cx="50%" cy="0%" r="80%">
-      <stop offset="0%" stop-color="#f07b2b" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#f07b2b" stop-opacity="0"/>
+    <!-- Overall ambient glow from flares (orange tinge over scene) -->
+    <radialGradient id="flareAtmosphere" cx="28%" cy="14%" r="45%">
+      <stop offset="0%"   stop-color="#f07b2b" stop-opacity="0.55"/>
+      <stop offset="20%"  stop-color="#c05010" stop-opacity="0.32"/>
+      <stop offset="50%"  stop-color="#7a2e00" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#7a2e00" stop-opacity="0"/>
     </radialGradient>
+    <!-- Ground / refinery base -->
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0c182a"/>
+      <stop offset="100%" stop-color="#060e1a"/>
+    </linearGradient>
+    <!-- Cloud (night, smoke-like) -->
+    <linearGradient id="smokeCloud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0d1428" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#1e1008" stop-opacity="0.50"/>
+    </linearGradient>
+    <!-- Distant lit-cloud (orange from flares) -->
+    <linearGradient id="smokeLit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#141824" stop-opacity="0.75"/>
+      <stop offset="60%"  stop-color="#2a1200" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#6a3000" stop-opacity="0.65"/>
+    </linearGradient>
+    <!-- Stars (tiny bright dots — simulated with radial gradient) -->
+    <!-- Pipe rack top glow -->
+    <linearGradient id="groundGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#f07b2b" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#f07b2b" stop-opacity="0"/>
+    </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#dusk)"/>
+
+  <!-- Night sky -->
+  <rect width="800" height="450" fill="url(#sky)"/>
+
+  <!-- Stars (scattered small circles) -->
+  <circle cx="32"  cy="22"  r="0.9" fill="#ffffff" fill-opacity="0.75"/>
+  <circle cx="87"  cy="14"  r="1.1" fill="#ffffff" fill-opacity="0.80"/>
+  <circle cx="155" cy="30"  r="0.8" fill="#ffffff" fill-opacity="0.70"/>
+  <circle cx="210" cy="10"  r="1.0" fill="#ffffff" fill-opacity="0.78"/>
+  <circle cx="268" cy="24"  r="0.9" fill="#ffffff" fill-opacity="0.72"/>
+  <circle cx="340" cy="8"   r="1.2" fill="#ffffff" fill-opacity="0.82"/>
+  <circle cx="410" cy="19"  r="0.8" fill="#ffffff" fill-opacity="0.68"/>
+  <circle cx="472" cy="30"  r="1.0" fill="#ffffff" fill-opacity="0.75"/>
+  <circle cx="544" cy="12"  r="0.9" fill="#ffffff" fill-opacity="0.72"/>
+  <circle cx="612" cy="28"  r="1.1" fill="#ffffff" fill-opacity="0.78"/>
+  <circle cx="678" cy="16"  r="0.8" fill="#ffffff" fill-opacity="0.70"/>
+  <circle cx="735" cy="9"   r="1.0" fill="#ffffff" fill-opacity="0.80"/>
+  <circle cx="788" cy="25"  r="0.9" fill="#ffffff" fill-opacity="0.73"/>
+  <circle cx="52"  cy="55"  r="0.8" fill="#ffffff" fill-opacity="0.65"/>
+  <circle cx="118" cy="70"  r="1.0" fill="#ffffff" fill-opacity="0.70"/>
+  <circle cx="220" cy="58"  r="0.8" fill="#ffffff" fill-opacity="0.65"/>
+  <circle cx="295" cy="75"  r="0.9" fill="#ffffff" fill-opacity="0.68"/>
+  <circle cx="375" cy="48"  r="0.8" fill="#ffffff" fill-opacity="0.63"/>
+  <circle cx="490" cy="62"  r="1.1" fill="#ffffff" fill-opacity="0.72"/>
+  <circle cx="576" cy="45"  r="0.8" fill="#ffffff" fill-opacity="0.65"/>
+  <circle cx="655" cy="72"  r="0.9" fill="#ffffff" fill-opacity="0.70"/>
+  <circle cx="770" cy="52"  r="0.8" fill="#ffffff" fill-opacity="0.65"/>
+
+  <!-- Flare glow atmosphere (biggest visual impact) -->
+  <rect width="800" height="450" fill="url(#flareAtmosphere)"/>
+
+  <!-- Smoke / clouds from stacks (dark, bottom-lit orange) -->
+  <!-- Main flare smoke (top-left) -->
+  <ellipse cx="198" cy="80"  rx="40"  ry="18" fill="url(#smokeLit)" opacity="0.68"/>
+  <ellipse cx="218" cy="63"  rx="32"  ry="14" fill="url(#smokeLit)" opacity="0.60"/>
+  <ellipse cx="240" cy="48"  rx="38"  ry="15" fill="url(#smokeLit)" opacity="0.52"/>
+  <ellipse cx="258" cy="34"  rx="46"  ry="17" fill="url(#smokeLit)" opacity="0.45"/>
+  <!-- General sky smoke/haze (mid-right area) -->
+  <ellipse cx="520" cy="110" rx="110" ry="28" fill="url(#smokeCloud)" opacity="0.55"/>
+  <ellipse cx="610" cy="92"  rx="85"  ry="22" fill="url(#smokeCloud)" opacity="0.60"/>
+  <ellipse cx="455" cy="125" rx="80"  ry="20" fill="url(#smokeCloud)" opacity="0.48"/>
+  <!-- Right side clouds -->
+  <ellipse cx="720" cy="100" rx="90"  ry="24" fill="url(#smokeCloud)" opacity="0.52"/>
+  <ellipse cx="780" cy="82"  rx="65"  ry="18" fill="url(#smokeCloud)" opacity="0.57"/>
 
   <!-- Ground -->
-  <rect x="0" y="390" width="800" height="60" fill="#0a1628"/>
+  <rect x="0" y="390" width="800" height="60" fill="url(#ground)"/>
 
-  <!-- Background structures -->
-  <!-- Large distillation tower 1 -->
-  <rect x="100" y="140" width="28" height="250" fill="#1e3a5f"/>
-  <rect x="96" y="135" width="36" height="12" rx="2" fill="#2a4f7a"/>
-  <rect x="96" y="200" width="36" height="8" fill="#2a4f7a"/>
-  <rect x="96" y="260" width="36" height="8" fill="#2a4f7a"/>
-  <rect x="96" y="320" width="36" height="8" fill="#2a4f7a"/>
+  <!-- ═══ REFINERY STRUCTURES ═══ -->
+  <!-- Large distillation tower 1 (tallest) -->
+  <rect x="168" y="120" width="30" height="270" fill="#1a3258"/>
+  <rect x="164" y="114" width="38" height="14" rx="2" fill="#243e6e"/>
+  <!-- Platform rings on tower -->
+  <rect x="162" y="185" width="42" height="6" fill="#243e6e"/>
+  <rect x="162" y="250" width="42" height="6" fill="#243e6e"/>
+  <rect x="162" y="315" width="42" height="6" fill="#243e6e"/>
+  <!-- Safety lights on tower -->
+  <circle cx="183" cy="126" r="3" fill="#f07b2b" fill-opacity="0.90"/>
+  <circle cx="183" cy="192" r="2" fill="#f07b2b" fill-opacity="0.70"/>
+  <circle cx="183" cy="258" r="2" fill="#f07b2b" fill-opacity="0.60"/>
+
+  <!-- Flare pipe + flame -->
+  <line x1="184" y1="114" x2="210" y2="72" stroke="#243e6e" stroke-width="3.5"/>
+  <!-- Flame (multi-layer for depth) -->
+  <ellipse cx="210" cy="60"  rx="7"  ry="12" fill="#f07b2b" fill-opacity="0.95"/>
+  <ellipse cx="210" cy="52"  rx="5"  ry="9"  fill="#ffcc44" fill-opacity="0.88"/>
+  <ellipse cx="211" cy="44"  rx="3"  ry="6"  fill="#ffffff"  fill-opacity="0.60"/>
+  <!-- Flare glow halo -->
+  <circle cx="210" cy="62" r="20" fill="#f07b2b" fill-opacity="0.18"/>
+  <circle cx="210" cy="62" r="35" fill="#f07b2b" fill-opacity="0.09"/>
 
   <!-- Large distillation tower 2 -->
-  <rect x="170" y="100" width="32" height="290" fill="#1e3a5f"/>
-  <rect x="166" y="94" width="40" height="14" rx="2" fill="#2a4f7a"/>
-  <rect x="166" y="170" width="40" height="8" fill="#2a4f7a"/>
-  <rect x="166" y="240" width="40" height="8" fill="#2a4f7a"/>
-  <rect x="166" y="310" width="40" height="8" fill="#2a4f7a"/>
-  <!-- Flare pipe -->
-  <line x1="186" y1="94" x2="210" y2="60" stroke="#2a4f7a" stroke-width="3"/>
-  <!-- Flame -->
-  <ellipse cx="210" cy="55" rx="8" ry="12" fill="#f07b2b" fill-opacity="0.9"/>
-  <ellipse cx="210" cy="48" rx="5" ry="8" fill="#ffcc44" fill-opacity="0.8"/>
-  <rect x="190" y="30" width="40" height="40" fill="url(#flameglow)"/>
+  <rect x="98"  y="140" width="26" height="250" fill="#1a3258"/>
+  <rect x="94"  y="134" width="34" height="13" rx="2" fill="#243e6e"/>
+  <rect x="92"  y="195" width="38" height="5" fill="#243e6e"/>
+  <rect x="92"  y="255" width="38" height="5" fill="#243e6e"/>
+  <rect x="92"  y="315" width="38" height="5" fill="#243e6e"/>
+  <circle cx="111" cy="140" r="2.5" fill="#f07b2b" fill-opacity="0.82"/>
 
-  <!-- Sphere tank -->
-  <circle cx="300" cy="310" r="55" fill="#1a3050"/>
-  <circle cx="300" cy="310" r="55" fill="none" stroke="#2a4f7a" stroke-width="2"/>
-  <ellipse cx="300" cy="280" rx="30" ry="8" fill="#2a4f7a" fill-opacity="0.3"/>
-  <line x1="300" y1="365" x2="300" y2="390" stroke="#2a4f7a" stroke-width="4"/>
-  <line x1="260" y1="390" x2="340" y2="390" stroke="#2a4f7a" stroke-width="4"/>
+  <!-- Sphere tank (large, centre-left) -->
+  <circle cx="306" cy="310" r="58" fill="#162840"/>
+  <circle cx="306" cy="310" r="58" fill="none" stroke="#243e6e" stroke-width="2"/>
+  <!-- Sphere highlight (small reflection of flare) -->
+  <ellipse cx="292" cy="284" rx="16" ry="9" fill="#f07b2b" fill-opacity="0.10"/>
+  <line x1="306" y1="368" x2="306" y2="390" stroke="#243e6e" stroke-width="5"/>
+  <line x1="266" y1="390" x2="346" y2="390" stroke="#243e6e" stroke-width="5"/>
 
-  <!-- Horizontal tanks -->
-  <ellipse cx="460" cy="340" rx="18" ry="30" fill="#152840"/>
-  <rect x="460" y="310" width="120" height="60" fill="#1a3050"/>
-  <ellipse cx="580" cy="340" rx="18" ry="30" fill="#152840"/>
-  <line x1="460" y1="310" x2="580" y2="310" stroke="#2a4f7a" stroke-width="2"/>
-  <line x1="460" y1="370" x2="580" y2="370" stroke="#2a4f7a" stroke-width="2"/>
+  <!-- Horizontal tanks (right of sphere) -->
+  <ellipse cx="465" cy="342" rx="20" ry="32" fill="#12243c"/>
+  <rect x="465" y="310" width="128" height="64" fill="#162840"/>
+  <ellipse cx="593" cy="342" rx="20" ry="32" fill="#12243c"/>
+  <!-- Tank saddle supports -->
+  <rect x="480" y="370" width="10" height="20" fill="#0e1e30"/>
+  <rect x="550" y="370" width="10" height="20" fill="#0e1e30"/>
+  <!-- Tank highlight stripe -->
+  <line x1="465" y1="318" x2="593" y2="318" stroke="#243e6e" stroke-width="1.5"/>
+  <line x1="465" y1="366" x2="593" y2="366" stroke="#243e6e" stroke-width="1.5"/>
 
-  <!-- Tall chimney stacks -->
-  <rect x="620" y="120" width="18" height="270" fill="#1a3050"/>
-  <rect x="616" y="114" width="26" height="10" rx="1" fill="#2a4f7a"/>
-  <ellipse cx="629" cy="120" rx="13" ry="5" fill="#223d60"/>
-  <!-- Smoke -->
-  <ellipse cx="629" cy="105" rx="10" ry="7" fill="#334466" fill-opacity="0.5"/>
-  <ellipse cx="635" cy="90" rx="12" ry="8" fill="#334466" fill-opacity="0.4"/>
-  <ellipse cx="628" cy="75" rx="14" ry="9" fill="#334466" fill-opacity="0.3"/>
+  <!-- Chimney stacks (right) -->
+  <rect x="625" y="110" width="16" height="280" fill="#162840"/>
+  <rect x="621" y="104" width="24" height="10" rx="1" fill="#243e6e"/>
+  <ellipse cx="633" cy="110" rx="12" ry="4" fill="#1e344e"/>
+  <!-- Chimney smoke (dark plumes) -->
+  <ellipse cx="633" cy="96"  rx="10" ry="6"  fill="#1a2234" fill-opacity="0.62"/>
+  <ellipse cx="638" cy="82"  rx="14" ry="8"  fill="#1a2234" fill-opacity="0.52"/>
+  <ellipse cx="634" cy="66"  rx="18" ry="10" fill="#1a2234" fill-opacity="0.42"/>
+  <ellipse cx="640" cy="50"  rx="22" ry="11" fill="#1a2234" fill-opacity="0.32"/>
 
-  <rect x="660" y="160" width="14" height="230" fill="#1a3050"/>
-  <rect x="656" y="154" width="22" height="8" rx="1" fill="#2a4f7a"/>
+  <rect x="662" y="148" width="13" height="242" fill="#162840"/>
+  <rect x="658" y="142" width="21" height="9" rx="1" fill="#243e6e"/>
+  <ellipse cx="668" cy="140" rx="10" ry="4" fill="#1e344e"/>
+  <ellipse cx="668" cy="128" rx="8"  ry="5"  fill="#1a2234" fill-opacity="0.55"/>
+  <ellipse cx="672" cy="114" rx="11" ry="7"  fill="#1a2234" fill-opacity="0.45"/>
 
-  <!-- Pipework on ground -->
-  <line x1="0" y1="400" x2="800" y2="400" stroke="#2a4f7a" stroke-width="6"/>
-  <line x1="120" y1="390" x2="120" y2="406" stroke="#2a4f7a" stroke-width="8"/>
-  <line x1="200" y1="390" x2="200" y2="406" stroke="#2a4f7a" stroke-width="8"/>
-  <line x1="280" y1="390" x2="280" y2="406" stroke="#2a4f7a" stroke-width="8"/>
-  <line x1="370" y1="390" x2="370" y2="406" stroke="#2a4f7a" stroke-width="8"/>
-  <line x1="0" y1="410" x2="800" y2="410" stroke="#2a4f7a" stroke-width="4"/>
+  <!-- Pipe rack on ground -->
+  <line x1="0"   y1="400" x2="800" y2="400" stroke="#243e6e" stroke-width="7"/>
+  <line x1="0"   y1="412" x2="800" y2="412" stroke="#243e6e" stroke-width="4"/>
+  <!-- Pipe support stanchions -->
+  <line x1="90"  y1="390" x2="90"  y2="408" stroke="#243e6e" stroke-width="9"/>
+  <line x1="200" y1="390" x2="200" y2="408" stroke="#243e6e" stroke-width="9"/>
+  <line x1="320" y1="390" x2="320" y2="408" stroke="#243e6e" stroke-width="9"/>
+  <line x1="440" y1="390" x2="440" y2="408" stroke="#243e6e" stroke-width="9"/>
+  <line x1="560" y1="390" x2="560" y2="408" stroke="#243e6e" stroke-width="9"/>
+  <!-- Ground-level orange safety light strip -->
+  <rect x="0" y="414" width="800" height="2" fill="#f07b2b" fill-opacity="0.12"/>
 
-  <!-- Lights/windows on towers -->
-  <rect x="104" y="155" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.8"/>
-  <rect x="104" y="220" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.6"/>
-  <rect x="174" y="110" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.8"/>
-  <rect x="174" y="185" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.6"/>
-  <rect x="174" y="255" width="6" height="4" rx="1" fill="#f07b2b" fill-opacity="0.5"/>
+  <!-- Safety lights on structures -->
+  <circle cx="635" cy="112" r="2.5" fill="#f07b2b" fill-opacity="0.88"/>
+  <circle cx="635" cy="180" r="2"   fill="#f07b2b" fill-opacity="0.65"/>
+  <circle cx="635" cy="250" r="2"   fill="#f07b2b" fill-opacity="0.55"/>
+  <circle cx="668" cy="143" r="2"   fill="#f07b2b" fill-opacity="0.80"/>
 
-  <!-- Glow from flare -->
-  <rect x="150" y="0" width="200" height="120" fill="url(#glow)" fill-opacity="0.4"/>
+  <!-- Ground reflections from flare/lights -->
+  <rect x="140" y="380" width="200" height="14" fill="url(#groundGlow)" opacity="0.8"/>
+  <rect x="0"   y="385" width="800" height="10" fill="#f07b2b" fill-opacity="0.04"/>
 
-  <!-- Foreground heavy transport truck -->
-  <rect x="480" y="358" width="200" height="32" rx="4" fill="#0d2240"/>
-  <rect x="660" y="348" width="60" height="42" rx="3" fill="#0d2240"/>
-  <ellipse cx="510" cy="392" rx="16" ry="16" fill="#080f1e"/>
-  <ellipse cx="510" cy="392" rx="10" ry="10" fill="#1a2e50"/>
-  <ellipse cx="650" cy="392" rx="16" ry="16" fill="#080f1e"/>
-  <ellipse cx="650" cy="392" rx="10" ry="10" fill="#1a2e50"/>
-  <ellipse cx="700" cy="392" rx="16" ry="16" fill="#080f1e"/>
-  <ellipse cx="700" cy="392" rx="10" ry="10" fill="#1a2e50"/>
-  <!-- Cab windows -->
-  <rect x="664" y="353" width="24" height="14" rx="2" fill="#2a4f7a" fill-opacity="0.7"/>
-  <!-- Headlight -->
-  <ellipse cx="720" cy="368" rx="5" ry="5" fill="#ffee88" fill-opacity="0.9"/>
+  <!-- Foreground heavy transport truck with equipment -->
+  <rect x="462" y="360" width="195" height="30" rx="3" fill="#0a1e34"/>
+  <rect x="648" y="350" width="58"  height="40" rx="3" fill="#0a1e34"/>
+  <!-- Cab windshield -->
+  <rect x="654" y="356" width="34"  height="20" rx="2" fill="#1e3e68" fill-opacity="0.70"/>
+  <!-- Headlights -->
+  <ellipse cx="706" cy="370" rx="5"  ry="5" fill="#ffee88" fill-opacity="0.95"/>
+  <ellipse cx="706" cy="354" rx="4"  ry="3" fill="#ffee88" fill-opacity="0.70"/>
+  <!-- Wheels -->
+  <ellipse cx="492" cy="393" rx="15" ry="15" fill="#070f1a"/>
+  <ellipse cx="492" cy="393" rx="9"  ry="9"  fill="#162840"/>
+  <ellipse cx="538" cy="393" rx="15" ry="15" fill="#070f1a"/>
+  <ellipse cx="538" cy="393" rx="9"  ry="9"  fill="#162840"/>
+  <ellipse cx="645" cy="393" rx="15" ry="15" fill="#070f1a"/>
+  <ellipse cx="645" cy="393" rx="9"  ry="9"  fill="#162840"/>
+  <ellipse cx="690" cy="393" rx="15" ry="15" fill="#070f1a"/>
+  <ellipse cx="690" cy="393" rx="9"  ry="9"  fill="#162840"/>
+  <!-- Headlight glow on road -->
+  <ellipse cx="720" cy="400" rx="28" ry="8" fill="#ffee88" fill-opacity="0.08"/>
 
-  <!-- Orange accent -->
+  <!-- Orange accent line -->
   <rect x="0" y="445" width="800" height="5" fill="#f07b2b"/>
 
   <!-- Label -->
-  <rect x="24" y="24" width="250" height="40" rx="6" fill="#000000" fill-opacity="0.4"/>
-  <text x="36" y="49" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff">Oil Refinery Turnaround</text>
+  <rect x="22" y="22" width="236" height="38" rx="6" fill="#000000" fill-opacity="0.50"/>
+  <text x="34" y="46" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Oil Refinery Turnaround</text>
 </svg>

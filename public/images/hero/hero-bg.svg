@@ -1,0 +1,311 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" width="1440" height="800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Multi-stop sky: deep navy at top → blazing amber at horizon -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#04080f"/>
+      <stop offset="20%"  stop-color="#080f1e"/>
+      <stop offset="40%"  stop-color="#0a1628"/>
+      <stop offset="58%"  stop-color="#0e2040"/>
+      <stop offset="70%"  stop-color="#2a1000"/>
+      <stop offset="80%"  stop-color="#6e2500"/>
+      <stop offset="90%"  stop-color="#b84800"/>
+      <stop offset="96%"  stop-color="#d86010"/>
+      <stop offset="100%" stop-color="#e87020"/>
+    </linearGradient>
+    <!-- Sun radial glow (right of centre at horizon) -->
+    <radialGradient id="sunGlow" cx="62%" cy="63%" r="38%">
+      <stop offset="0%"   stop-color="#ffa040" stop-opacity="1.0"/>
+      <stop offset="12%"  stop-color="#f07b2b" stop-opacity="0.75"/>
+      <stop offset="28%"  stop-color="#c05010" stop-opacity="0.45"/>
+      <stop offset="55%"  stop-color="#7a2e00" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#7a2e00" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Horizon warmth band -->
+    <linearGradient id="horizonBand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#e87020" stop-opacity="0"/>
+      <stop offset="40%"  stop-color="#d86010" stop-opacity="0.22"/>
+      <stop offset="65%"  stop-color="#c05010" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#a03808" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Water surface -->
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0d1a2e"/>
+      <stop offset="40%"  stop-color="#081020"/>
+      <stop offset="100%" stop-color="#03060e"/>
+    </linearGradient>
+    <!-- Orange reflection on water -->
+    <radialGradient id="waterGlow" cx="62%" cy="2%" r="55%">
+      <stop offset="0%"   stop-color="#f07b2b" stop-opacity="0.40"/>
+      <stop offset="25%"  stop-color="#c05010" stop-opacity="0.22"/>
+      <stop offset="60%"  stop-color="#7a2e00" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#7a2e00" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Far cloud (cool blue-grey) -->
+    <linearGradient id="cloudFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0d1a30" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#4a2200" stop-opacity="0.45"/>
+    </linearGradient>
+    <!-- Mid cloud (warmer, orange-lit underside) -->
+    <linearGradient id="cloudMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#141f35" stop-opacity="0.8"/>
+      <stop offset="60%"  stop-color="#2a1400" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#7a3800" stop-opacity="0.65"/>
+    </linearGradient>
+    <!-- Near cloud (most orange-lit) -->
+    <linearGradient id="cloudNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1a2440" stop-opacity="0.85"/>
+      <stop offset="50%"  stop-color="#3a1800" stop-opacity="0.80"/>
+      <stop offset="100%" stop-color="#9a4800" stop-opacity="0.70"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ═══ SKY ═══ -->
+  <rect width="1440" height="800" fill="url(#sky)"/>
+  <!-- Sun + atmosphere glow -->
+  <rect width="1440" height="800" fill="url(#sunGlow)"/>
+
+  <!-- ═══ CLOUDS — FAR (high, cool, small) ═══ -->
+  <ellipse cx="120"  cy="108" rx="130" ry="30"  fill="url(#cloudFar)" opacity="0.55"/>
+  <ellipse cx="200"  cy="92"  rx="95"  ry="24"  fill="url(#cloudFar)" opacity="0.6"/>
+  <ellipse cx="68"   cy="118" rx="70"  ry="20"  fill="url(#cloudFar)" opacity="0.45"/>
+  <ellipse cx="530"  cy="88"  rx="150" ry="36"  fill="url(#cloudFar)" opacity="0.55"/>
+  <ellipse cx="620"  cy="72"  rx="110" ry="28"  fill="url(#cloudFar)" opacity="0.6"/>
+  <ellipse cx="460"  cy="100" rx="85"  ry="22"  fill="url(#cloudFar)" opacity="0.45"/>
+  <ellipse cx="1080" cy="100" rx="165" ry="38"  fill="url(#cloudFar)" opacity="0.52"/>
+  <ellipse cx="1190" cy="83"  rx="120" ry="30"  fill="url(#cloudFar)" opacity="0.57"/>
+  <ellipse cx="1010" cy="112" rx="90"  ry="24"  fill="url(#cloudFar)" opacity="0.43"/>
+  <ellipse cx="1360" cy="115" rx="100" ry="26"  fill="url(#cloudFar)" opacity="0.48"/>
+
+  <!-- ═══ CLOUDS — MID (medium, warmer) ═══ -->
+  <ellipse cx="280"  cy="165" rx="200" ry="52"  fill="url(#cloudMid)" opacity="0.65"/>
+  <ellipse cx="400"  cy="145" rx="160" ry="44"  fill="url(#cloudMid)" opacity="0.70"/>
+  <ellipse cx="185"  cy="178" rx="115" ry="34"  fill="url(#cloudMid)" opacity="0.52"/>
+  <ellipse cx="820"  cy="150" rx="215" ry="56"  fill="url(#cloudMid)" opacity="0.62"/>
+  <ellipse cx="960"  cy="132" rx="165" ry="44"  fill="url(#cloudMid)" opacity="0.67"/>
+  <ellipse cx="740"  cy="165" rx="130" ry="38"  fill="url(#cloudMid)" opacity="0.55"/>
+  <ellipse cx="1300" cy="170" rx="180" ry="48"  fill="url(#cloudMid)" opacity="0.58"/>
+  <ellipse cx="1400" cy="152" rx="130" ry="38"  fill="url(#cloudMid)" opacity="0.53"/>
+
+  <!-- ═══ CLOUDS — NEAR (lower, large, most orange-lit) ═══ -->
+  <ellipse cx="160"  cy="248" rx="240" ry="66"  fill="url(#cloudNear)" opacity="0.62"/>
+  <ellipse cx="300"  cy="226" rx="195" ry="56"  fill="url(#cloudNear)" opacity="0.68"/>
+  <ellipse cx="65"   cy="260" rx="130" ry="42"  fill="url(#cloudNear)" opacity="0.50"/>
+  <ellipse cx="680"  cy="238" rx="255" ry="70"  fill="url(#cloudNear)" opacity="0.58"/>
+  <ellipse cx="820"  cy="215" rx="215" ry="60"  fill="url(#cloudNear)" opacity="0.63"/>
+  <ellipse cx="580"  cy="252" rx="150" ry="45"  fill="url(#cloudNear)" opacity="0.50"/>
+  <ellipse cx="1230" cy="255" rx="240" ry="64"  fill="url(#cloudNear)" opacity="0.58"/>
+  <ellipse cx="1370" cy="235" rx="170" ry="50"  fill="url(#cloudNear)" opacity="0.53"/>
+
+  <!-- ═══ HORIZON HAZE ═══ -->
+  <rect x="0" y="430" width="1440" height="95" fill="url(#horizonBand)"/>
+
+  <!-- ═══ WATER ═══ -->
+  <rect x="0" y="505" width="1440" height="295" fill="url(#water)"/>
+  <rect x="0" y="505" width="1440" height="295" fill="url(#waterGlow)"/>
+
+  <!-- Water ripple highlights -->
+  <path d="M0 525  Q240 520 480 527 Q720 533 960 527 Q1200 520 1440 527" fill="none" stroke="#f07b2b" stroke-width="1.2" stroke-opacity="0.10"/>
+  <path d="M0 545  Q200 541 400 547 Q600 552 800 547 Q1000 541 1200 547 Q1380 552 1440 549" fill="none" stroke="#f07b2b" stroke-width="1.0" stroke-opacity="0.07"/>
+  <path d="M0 565  Q220 561 440 567 Q660 573 880 567 Q1100 561 1320 567 Q1400 572 1440 570" fill="none" stroke="#ffffff" stroke-width="0.8" stroke-opacity="0.04"/>
+  <path d="M0 590  Q240 587 480 592 Q720 597 960 592 Q1200 587 1440 592" fill="none" stroke="#ffffff" stroke-width="0.8" stroke-opacity="0.03"/>
+  <path d="M0 625  Q200 622 400 627 Q600 631 800 627 Q1000 622 1200 627 Q1380 631 1440 629" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-opacity="0.025"/>
+  <path d="M0 670  Q250 668 500 672 Q750 676 1000 672 Q1250 668 1440 671" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-opacity="0.02"/>
+
+  <!-- ═══ QUAY / DOCK EDGE ═══ -->
+  <rect x="0" y="497" width="1440" height="14" fill="#040c18"/>
+  <!-- Dock bollards -->
+  <rect x="80"  y="488" width="8" height="12" rx="2" fill="#070f1e"/>
+  <rect x="200" y="488" width="8" height="12" rx="2" fill="#070f1e"/>
+  <rect x="340" y="488" width="8" height="12" rx="2" fill="#070f1e"/>
+  <rect x="500" y="488" width="8" height="12" rx="2" fill="#070f1e"/>
+  <rect x="660" y="488" width="8" height="12" rx="2" fill="#070f1e"/>
+
+  <!-- ═══ CONTAINER SHIP ═══ -->
+  <!-- Hull (flat-bottomed trapezoid) -->
+  <path d="M60 480 L1300 480 L1335 500 L25 500Z" fill="#040c18"/>
+  <!-- Waterline stripe (red oxide) -->
+  <rect x="60" y="494" width="1275" height="5" fill="#200a04"/>
+  <!-- Hull rivets / plate lines -->
+  <line x1="60"  y1="487" x2="1300" y2="487" stroke="#081020" stroke-width="1.5" stroke-opacity="0.8"/>
+  <line x1="60"  y1="492" x2="1300" y2="492" stroke="#081020" stroke-width="1"   stroke-opacity="0.6"/>
+
+  <!-- Container deck (4 rows, silhouetted) -->
+  <!-- Row base (lowest) y=458–478 -->
+  <rect x="75"  y="458" width="1050" height="22" fill="#050d1a"/>
+  <!-- Row 2 -->
+  <rect x="85"  y="436" width="1010" height="22" fill="#060e1c"/>
+  <!-- Row 3 -->
+  <rect x="100" y="414" width="950"  height="22" fill="#07101e"/>
+  <!-- Row 4 (top) -->
+  <rect x="115" y="392" width="860"  height="22" fill="#081020"/>
+
+  <!-- Vertical container division lines (all rows) -->
+  <!-- These create the illusion of individual containers -->
+  <g stroke="#040c18" stroke-width="1" stroke-opacity="0.9">
+    <!-- Bottom row at y=458 to 480 -->
+    <line x1="115" y1="458" x2="115" y2="480"/><line x1="155" y1="458" x2="155" y2="480"/>
+    <line x1="195" y1="458" x2="195" y2="480"/><line x1="235" y1="458" x2="235" y2="480"/>
+    <line x1="275" y1="458" x2="275" y2="480"/><line x1="315" y1="458" x2="315" y2="480"/>
+    <line x1="355" y1="458" x2="355" y2="480"/><line x1="395" y1="458" x2="395" y2="480"/>
+    <line x1="435" y1="458" x2="435" y2="480"/><line x1="475" y1="458" x2="475" y2="480"/>
+    <line x1="515" y1="458" x2="515" y2="480"/><line x1="555" y1="458" x2="555" y2="480"/>
+    <line x1="595" y1="458" x2="595" y2="480"/><line x1="635" y1="458" x2="635" y2="480"/>
+    <line x1="675" y1="458" x2="675" y2="480"/><line x1="715" y1="458" x2="715" y2="480"/>
+    <line x1="755" y1="458" x2="755" y2="480"/><line x1="795" y1="458" x2="795" y2="480"/>
+    <line x1="835" y1="458" x2="835" y2="480"/><line x1="875" y1="458" x2="875" y2="480"/>
+    <line x1="915" y1="458" x2="915" y2="480"/><line x1="955" y1="458" x2="955" y2="480"/>
+    <line x1="995" y1="458" x2="995" y2="480"/>
+    <!-- Row 2 y=436 to 458 -->
+    <line x1="130" y1="436" x2="130" y2="458"/><line x1="170" y1="436" x2="170" y2="458"/>
+    <line x1="210" y1="436" x2="210" y2="458"/><line x1="250" y1="436" x2="250" y2="458"/>
+    <line x1="290" y1="436" x2="290" y2="458"/><line x1="330" y1="436" x2="330" y2="458"/>
+    <line x1="370" y1="436" x2="370" y2="458"/><line x1="410" y1="436" x2="410" y2="458"/>
+    <line x1="450" y1="436" x2="450" y2="458"/><line x1="490" y1="436" x2="490" y2="458"/>
+    <line x1="530" y1="436" x2="530" y2="458"/><line x1="570" y1="436" x2="570" y2="458"/>
+    <line x1="610" y1="436" x2="610" y2="458"/><line x1="650" y1="436" x2="650" y2="458"/>
+    <line x1="690" y1="436" x2="690" y2="458"/><line x1="730" y1="436" x2="730" y2="458"/>
+    <line x1="770" y1="436" x2="770" y2="458"/><line x1="810" y1="436" x2="810" y2="458"/>
+    <line x1="850" y1="436" x2="850" y2="458"/><line x1="890" y1="436" x2="890" y2="458"/>
+    <line x1="930" y1="436" x2="930" y2="458"/><line x1="970" y1="436" x2="970" y2="458"/>
+    <!-- Row 3 y=414 to 436 -->
+    <line x1="148" y1="414" x2="148" y2="436"/><line x1="188" y1="414" x2="188" y2="436"/>
+    <line x1="228" y1="414" x2="228" y2="436"/><line x1="268" y1="414" x2="268" y2="436"/>
+    <line x1="308" y1="414" x2="308" y2="436"/><line x1="348" y1="414" x2="348" y2="436"/>
+    <line x1="388" y1="414" x2="388" y2="436"/><line x1="428" y1="414" x2="428" y2="436"/>
+    <line x1="468" y1="414" x2="468" y2="436"/><line x1="508" y1="414" x2="508" y2="436"/>
+    <line x1="548" y1="414" x2="548" y2="436"/><line x1="588" y1="414" x2="588" y2="436"/>
+    <line x1="628" y1="414" x2="628" y2="436"/><line x1="668" y1="414" x2="668" y2="436"/>
+    <line x1="708" y1="414" x2="708" y2="436"/><line x1="748" y1="414" x2="748" y2="436"/>
+    <line x1="788" y1="414" x2="788" y2="436"/><line x1="828" y1="414" x2="828" y2="436"/>
+    <line x1="868" y1="414" x2="868" y2="436"/><line x1="908" y1="414" x2="908" y2="436"/>
+    <!-- Row 4 y=392 to 414 -->
+    <line x1="162" y1="392" x2="162" y2="414"/><line x1="202" y1="392" x2="202" y2="414"/>
+    <line x1="242" y1="392" x2="242" y2="414"/><line x1="282" y1="392" x2="282" y2="414"/>
+    <line x1="322" y1="392" x2="322" y2="414"/><line x1="362" y1="392" x2="362" y2="414"/>
+    <line x1="402" y1="392" x2="402" y2="414"/><line x1="442" y1="392" x2="442" y2="414"/>
+    <line x1="482" y1="392" x2="482" y2="414"/><line x1="522" y1="392" x2="522" y2="414"/>
+    <line x1="562" y1="392" x2="562" y2="414"/><line x1="602" y1="392" x2="602" y2="414"/>
+    <line x1="642" y1="392" x2="642" y2="414"/><line x1="682" y1="392" x2="682" y2="414"/>
+    <line x1="722" y1="392" x2="722" y2="414"/><line x1="762" y1="392" x2="762" y2="414"/>
+    <line x1="802" y1="392" x2="802" y2="414"/><line x1="842" y1="392" x2="842" y2="414"/>
+    <line x1="882" y1="392" x2="882" y2="414"/>
+  </g>
+
+  <!-- Ship bridge superstructure (right side) -->
+  <rect x="1090" y="340" width="160" height="142" rx="3" fill="#040c18"/>
+  <!-- Bridge windows (lit orange) -->
+  <rect x="1100" y="352" width="28" height="16" rx="2" fill="#f07b2b" fill-opacity="0.30"/>
+  <rect x="1136" y="352" width="28" height="16" rx="2" fill="#f07b2b" fill-opacity="0.25"/>
+  <rect x="1172" y="352" width="28" height="16" rx="2" fill="#f07b2b" fill-opacity="0.20"/>
+  <rect x="1208" y="352" width="28" height="16" rx="2" fill="#f07b2b" fill-opacity="0.18"/>
+  <!-- Bridge nav lights -->
+  <circle cx="1250" cy="345" r="3" fill="#ffee88" fill-opacity="0.85"/>
+  <!-- Funnel -->
+  <rect x="1230" y="315" width="45" height="58" rx="4" fill="#040c18"/>
+  <!-- Funnel smoke -->
+  <ellipse cx="1252" cy="308" rx="12" ry="7"  fill="#1a2030" fill-opacity="0.55"/>
+  <ellipse cx="1256" cy="295" rx="16" ry="9"  fill="#1a2030" fill-opacity="0.45"/>
+  <ellipse cx="1260" cy="280" rx="20" ry="11" fill="#1a2030" fill-opacity="0.35"/>
+  <ellipse cx="1266" cy="265" rx="26" ry="13" fill="#1a2030" fill-opacity="0.25"/>
+  <!-- Navigation mast -->
+  <line x1="1160" y1="340" x2="1160" y2="285" stroke="#040c18" stroke-width="3"/>
+  <line x1="1140" y1="298" x2="1180" y2="298" stroke="#040c18" stroke-width="2"/>
+  <!-- Masthead light -->
+  <circle cx="1160" cy="285" r="3" fill="#ffffaa" fill-opacity="0.9"/>
+
+  <!-- ═══ CRANE 1 — largest, x≈370 ═══ -->
+  <!-- A-frame legs -->
+  <line x1="310" y1="498" x2="355" y2="295" stroke="#040c18" stroke-width="12" stroke-linecap="round"/>
+  <line x1="430" y1="498" x2="385" y2="295" stroke="#040c18" stroke-width="12" stroke-linecap="round"/>
+  <!-- Leg cross-braces -->
+  <line x1="320" y1="460" x2="420" y2="460" stroke="#040c18" stroke-width="6"/>
+  <line x1="328" y1="420" x2="412" y2="420" stroke="#040c18" stroke-width="5"/>
+  <line x1="336" y1="380" x2="404" y2="380" stroke="#040c18" stroke-width="4"/>
+  <line x1="344" y1="345" x2="396" y2="345" stroke="#040c18" stroke-width="3"/>
+  <!-- Tower (above A-frame) -->
+  <rect x="360" y="170" width="20" height="125" fill="#040c18"/>
+  <!-- Machine house -->
+  <rect x="342" y="162" width="56" height="28" rx="3" fill="#040c18"/>
+  <!-- Cab windows -->
+  <rect x="348" y="168" width="18" height="12" rx="1" fill="#f07b2b" fill-opacity="0.22"/>
+  <!-- Forward boom (extends over ship) -->
+  <line x1="370" y1="175" x2="690" y2="340" stroke="#040c18" stroke-width="10" stroke-linecap="round"/>
+  <!-- Counter-boom (extends landward) -->
+  <line x1="370" y1="175" x2="220" y2="240" stroke="#040c18" stroke-width="7"  stroke-linecap="round"/>
+  <!-- Boom stays (diagonal bracing from machine house to boom tip) -->
+  <line x1="362" y1="162" x2="690" y2="340" stroke="#040c18" stroke-width="3"/>
+  <line x1="378" y1="162" x2="220" y2="240" stroke="#040c18" stroke-width="2.5"/>
+  <!-- Trolley on boom -->
+  <rect x="548" y="268" width="18" height="12" rx="1" fill="#040c18"/>
+  <!-- Hoist cable -->
+  <line x1="557" y1="280" x2="557" y2="375" stroke="#040c18" stroke-width="2.5"/>
+  <!-- Spreader bar -->
+  <line x1="540" y1="375" x2="574" y2="375" stroke="#040c18" stroke-width="4"/>
+  <!-- Container being lifted (glows slightly in golden light) -->
+  <rect x="533" y="375" width="48" height="22" rx="2" fill="#060e1c"/>
+  <!-- Rail base -->
+  <rect x="290" y="495" width="165" height="6" rx="1" fill="#040c18"/>
+
+  <!-- ═══ CRANE 2 — medium, x≈660 ═══ -->
+  <!-- A-frame legs -->
+  <line x1="615" y1="498" x2="648" y2="332" stroke="#040c18" stroke-width="10" stroke-linecap="round"/>
+  <line x1="705" y1="498" x2="672" y2="332" stroke="#040c18" stroke-width="10" stroke-linecap="round"/>
+  <!-- Cross-braces -->
+  <line x1="622" y1="464" x2="698" y2="464" stroke="#040c18" stroke-width="5"/>
+  <line x1="629" y1="430" x2="691" y2="430" stroke="#040c18" stroke-width="4"/>
+  <line x1="636" y1="395" x2="684" y2="395" stroke="#040c18" stroke-width="3.5"/>
+  <line x1="642" y1="365" x2="678" y2="365" stroke="#040c18" stroke-width="3"/>
+  <!-- Tower -->
+  <rect x="652" y="220" width="16" height="112" fill="#040c18"/>
+  <!-- Machine house -->
+  <rect x="638" y="212" width="44" height="22" rx="2" fill="#040c18"/>
+  <!-- Forward boom -->
+  <line x1="660" y1="222" x2="920" y2="360" stroke="#040c18" stroke-width="8"  stroke-linecap="round"/>
+  <!-- Counter-boom -->
+  <line x1="660" y1="222" x2="545" y2="272" stroke="#040c18" stroke-width="6"  stroke-linecap="round"/>
+  <!-- Stays -->
+  <line x1="652" y1="212" x2="920" y2="360" stroke="#040c18" stroke-width="2.5"/>
+  <line x1="668" y1="212" x2="545" y2="272" stroke="#040c18" stroke-width="2"/>
+  <!-- Trolley + cable -->
+  <rect x="808" y="296" width="15" height="10" rx="1" fill="#040c18"/>
+  <line x1="815" y1="306" x2="815" y2="385" stroke="#040c18" stroke-width="2"/>
+  <line x1="800" y1="385" x2="830" y2="385" stroke="#040c18" stroke-width="3.5"/>
+  <rect x="794" y="385" width="42" height="18" rx="2" fill="#060e1c"/>
+  <!-- Rail base -->
+  <rect x="596" y="495" width="128" height="5" rx="1" fill="#040c18"/>
+
+  <!-- ═══ CRANE 3 — smaller, x≈880 ═══ -->
+  <!-- A-frame legs -->
+  <line x1="845" y1="498" x2="870" y2="368" stroke="#040c18" stroke-width="8" stroke-linecap="round"/>
+  <line x1="915" y1="498" x2="890" y2="368" stroke="#040c18" stroke-width="8" stroke-linecap="round"/>
+  <!-- Cross-braces -->
+  <line x1="851" y1="467" x2="909" y2="467" stroke="#040c18" stroke-width="4"/>
+  <line x1="857" y1="437" x2="903" y2="437" stroke="#040c18" stroke-width="3.5"/>
+  <line x1="863" y1="410" x2="897" y2="410" stroke="#040c18" stroke-width="3"/>
+  <!-- Tower -->
+  <rect x="872" y="270" width="14" height="98" fill="#040c18"/>
+  <!-- Machine house -->
+  <rect x="860" y="263" width="38" height="19" rx="2" fill="#040c18"/>
+  <!-- Forward boom -->
+  <line x1="879" y1="270" x2="1080" y2="380" stroke="#040c18" stroke-width="7" stroke-linecap="round"/>
+  <!-- Counter-boom -->
+  <line x1="879" y1="270" x2="792" y2="308" stroke="#040c18" stroke-width="5" stroke-linecap="round"/>
+  <!-- Stays -->
+  <line x1="872" y1="263" x2="1080" y2="380" stroke="#040c18" stroke-width="2"/>
+  <line x1="886" y1="263" x2="792" y2="308" stroke="#040c18" stroke-width="1.8"/>
+  <!-- Trolley + cable -->
+  <rect x="982" y="332" width="13" height="9"  rx="1" fill="#040c18"/>
+  <line x1="988" y1="341" x2="988" y2="400"   stroke="#040c18" stroke-width="2"/>
+  <line x1="975" y1="400" x2="1001" y2="400"  stroke="#040c18" stroke-width="3"/>
+  <rect x="970" y="400" width="36" height="16" rx="2" fill="#060e1c"/>
+  <!-- Rail base -->
+  <rect x="828" y="495" width="106" height="5" rx="1" fill="#040c18"/>
+
+  <!-- ═══ ATMOSPHERIC DEPTH — vignette corners ═══ -->
+  <!-- Left edge darkening -->
+  <rect x="0" y="0" width="120" height="800" fill="url(#sky)" opacity="0.35"/>
+  <!-- Right edge darkening -->
+  <rect x="1320" y="0" width="120" height="800" fill="url(#sky)" opacity="0.35"/>
+  <!-- Top vignette -->
+  <rect x="0" y="0" width="1440" height="60" fill="#04080f" opacity="0.4"/>
+</svg>
