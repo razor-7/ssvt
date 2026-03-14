@@ -2,8 +2,26 @@
 
 **Feature Branch**: `001-logistics-website`
 **Created**: 2026-03-14
-**Status**: Implemented
+**Last Updated**: 2026-03-15
+**Status**: Implemented + Enhanced
 **Input**: User description: "Build a static, animated, SEO-optimized corporate logistics website — intuitive, eye-catching, driven by local JSON data"
+
+## Change Log
+
+| Date | Change | Motivation |
+|------|--------|------------|
+| 2026-03-15 | Added `/tracking/` shipment tracking page | Competitive gap vs NTC Logistics — highest-impact missing feature |
+| 2026-03-15 | Added "Request a Quote" sticky CTA to header (desktop + mobile nav) | Conversion driver; present on NTC, missing from SSVT |
+| 2026-03-15 | Enabled brochure download (`brochurePdfPath` wired to `/brochure.pdf`) | Feature parity with competitor |
+| 2026-03-15 | Added international offices (Singapore, Dubai, London) to `offices.json` | Signals global reach (NTC shows 4 international offices) |
+| 2026-03-15 | Added two-tier header: utility top bar (phone, Track Shipment, brochure) | Professional logistics industry standard; improved UX |
+| 2026-03-15 | Enhanced hero: gradient bg, animated shapes, dual CTA, inline stats, trust strip | Visual gap: NTC hero scored higher; SSVT hero needed more depth |
+| 2026-03-15 | Added `TrustBanner` section below hero (6 certifications/rankings) | Missing differentiator — ISO, OHSAS, IC T50, global office count, 24/7 ops |
+| 2026-03-15 | Expanded `statistics.json` to 8 stats (added "6 Global Offices", "24/7 Operations") | Content depth improvement |
+| 2026-03-15 | Added 4th hero message; sharpened hero copy with ISO/stats callouts | Brand credibility signals in first viewport |
+| 2026-03-15 | Implemented favicon: `favicon.svg`, `favicon.ico` (16/32/48px), `site.webmanifest` | Missing entirely from original build |
+| 2026-03-15 | Fixed: mobile nav had no "Request a Quote" CTA — added to MobileNav drawer bottom | Bug: desktop CTA was `hidden md:flex`, invisible on mobile |
+| 2026-03-15 | Fixed: tracking page rendered without header/footer | Bug: `Header`/`Footer` not imported in `TrackingPage.jsx` |
 
 ## Site Map
 
@@ -27,7 +45,8 @@ Every route below is a statically generated HTML file. All content is sourced fr
 | `/sustainability/` | Sustainability | ESG commitments, CSR initiatives, sustainability reports, zero-injury goals |
 | `/training-academy/` | Training Academy | Overview of SSVT's logistics training programmes and enrolment pathway |
 | `/careers/` | Careers | Company culture, open roles sourced from JSON, application pathway |
-| `/contact/` | Contact | Dedicated contact page with form, all office addresses, social links, map embed |
+| `/contact/` | Contact | Dedicated contact page with form, all office addresses (incl. international), social links, static map |
+| `/tracking/` | Shipment Tracking | Tracking enquiry form (ref + email → Formspree/mailto), 3-step how-it-works, 24/7 contact block |
 | `/privacy-policy/` | Privacy Policy | Data handling, PII policy, cookie usage (content from Markdown) |
 | `/404.html` | 404 Error | Branded not-found page with error message, search box, and nav back to homepage |
 
@@ -256,6 +275,35 @@ statement, browse open roles (from JSON), and find the application pathway — s
 
 ---
 
+### User Story 10 — Client Tracks an Active Shipment (Priority: P2)
+
+A logistics client with an active cargo movement wants to check the current status of their
+shipment without calling the office. They visit `/tracking/`, enter their Bill of Lading or
+shipment reference and email address, and receive a status update from the operations team.
+
+**Why this priority**: Shipment tracking is the single highest-impact functional feature
+missing from the original build. It is a standard expectation for logistics clients and a
+key differentiator versus competitors (NTC Logistics offers tracking; SSVT did not).
+
+**Independent Test**: Navigate to `/tracking/`; fill in a shipment reference and email;
+submit — success message appears (or mailto opens if Formspree ID is not configured).
+Leave fields blank and submit — inline validation errors appear.
+
+**Acceptance Scenarios**:
+
+1. **Given** a client navigates to `/tracking/`, **When** the page loads, **Then** they see
+   the full site navigation, a tracking enquiry form, and a 3-step "how it works" explainer —
+   all within the standard page layout (header + footer).
+2. **Given** the tracking form is visible, **When** a user submits without filling required
+   fields, **Then** inline validation errors appear immediately — no page reload.
+3. **Given** a user fills in a valid shipment reference and email, **When** they submit,
+   **Then** a success message appears confirming the operations team will respond within 2
+   hours; if no Formspree ID is configured, the form falls back to a `mailto:` link.
+4. **Given** a client needs immediate help, **When** they view the page, **Then** a 24/7
+   operations contact block with a phone link and contact-page link is always visible.
+
+---
+
 ### Edge Cases
 
 - What happens when a local JSON data file has a missing or malformed field?
@@ -418,6 +466,17 @@ statement, browse open roles (from JSON), and find the application pathway — s
 
 ---
 
+#### Shipment Tracking (`/tracking/`)
+
+- **FR-P22**: A dedicated shipment tracking page MUST exist at `/tracking/` within the
+  standard site layout (header + footer). It MUST include: a tracking enquiry form (shipment
+  reference + email inputs with inline validation), a POST submission to Formspree (or
+  mailto fallback when `formspreeId` is null), a success/error feedback state, a 3-step
+  "how it works" section sourced from `data/tracking.json`, and an immediate-help block
+  showing the operations phone number and a link to `/contact/`.
+
+---
+
 ### Cross-Cutting Enhancement Requirements
 
 - **FR-E01**: All content sections on every page MUST use scroll-triggered reveal animations
@@ -426,13 +485,26 @@ statement, browse open roles (from JSON), and find the application pathway — s
 - **FR-E02**: A sticky "Back to Top" button MUST appear after the user scrolls past the
   hero on any page; its label MUST be sourced from `ui.json`.
 - **FR-E03**: Every page MUST include a downloadable company brochure link (PDF asset path
-  from `site.json`) in the footer or a designated section.
+  from `site.json`) in the footer or a designated section. The brochure link MUST also appear
+  in the header utility bar on desktop and in the mobile nav drawer.
 - **FR-E04**: The site MUST implement static full-text search (index generated at build time)
   allowing users to search across service names, case study titles, and insights articles;
   the search UI MUST be accessible from the navigation bar on every page.
 - **FR-E05**: Internal links between related content MUST be present on every detail page:
   service pages link to relevant industries and case studies; case study pages link back to
   services; industry pages link to services and case studies.
+- **FR-E06**: Every page MUST include a complete favicon set: `favicon.ico` (16×16, 32×32,
+  48×48 multi-size), `favicon.svg` (scalable, gradient background matching brand), and
+  `site.webmanifest` (PWA/Android home-screen support). The `<head>` MUST reference all
+  three plus `<meta name="theme-color">` matching the brand orange.
+- **FR-E07**: The homepage MUST include a `TrustBanner` section immediately below the hero,
+  displaying at least 6 certification/recognition tiles (ISO 9001, ISO 14001, OHSAS 18001,
+  IC T50 Ranked, global office count, 24/7 operations) — all labels sourced from `ui.json`.
+- **FR-E08**: The site navigation MUST include two tiers on desktop: a utility top bar
+  (24/7 phone number, "Track Shipment" link, brochure download) and the main nav bar
+  (logo, navigation links, "Request a Quote" CTA button). The mobile nav drawer MUST include
+  a "Request a Quote" primary button, a "Track Shipment" secondary button, and a brochure
+  download link in the drawer footer — all labels from `ui.json`.
 
 ---
 
@@ -576,10 +648,15 @@ statement, browse open roles (from JSON), and find the application pathway — s
 - **Statistic**: `label`, `value`, `unit`
 
 **`data/offices.json`** — array of:
-- **OfficeLocation**: `type` (Head / Corporate / Regional), `address`, `phone`
+- **OfficeLocation**: `type` (Head / Corporate / Regional / International), `label`, `address`, `phone`
+  — includes 3 India offices + 3 international offices (Singapore, Dubai, London)
 
 **`data/offices.json`** also includes a top-level map config object:
 - **MapConfig**: `staticMapImagePath`, `mapImageAlt`, `viewOnMapsUrl`
+
+**`data/tracking.json`**
+- **Tracking**: `heading`, `subtext`, `howItWorksSteps[]{ step, label, description }`,
+  `contactPhone`, `contactEmail`, `seo{ title, description }`
 
 **`data/partners.json`** — array of:
 - **Partner**: `name`, `logoAlt`, `websiteUrl` (optional)
@@ -610,8 +687,8 @@ statement, browse open roles (from JSON), and find the application pathway — s
   to a static host with a single command.
 - **SC-008**: A code review MUST find zero hardcoded user-visible strings in component
   markup — every text node and attribute value is traceable to a file under `data/`.
-- **SC-009**: All 18 page routes defined in the Site Map MUST exist as static HTML files
-  in the production build and return a valid, content-populated response.
+- **SC-009**: All 19 page routes defined in the Site Map (including `/tracking/`) MUST exist
+  as static HTML files in the production build and return a valid, content-populated response.
 - **SC-010**: Every detail page (service, industry, case study, insight) MUST contain at
   least one cross-link to a related page — verified by a link-integrity check on the build.
 - **SC-011**: The careers page MUST render without errors when `openRoles` is an empty

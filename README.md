@@ -27,21 +27,27 @@ data/                        # All content (source of truth — JSON files)
   industries/                # 10 industry detail JSON files + index.json
   case-studies/              # 4 case study detail JSON files + index.json
   insights/                  # 3 article detail JSON files + index.json
-  about.json, team.json, careers.json, offices.json, ...
+  tracking.json              # Shipment tracking page content
+  about.json, team.json, careers.json, offices.json, statistics.json, ...
 
 public/                      # Static assets (images, nav.js, brochure PDF)
   images/
     services/                # 9 SVG service icons
     industries/              # 10 SVG industry icons
-    hero/, team/, partners/, case-studies/
+    case-studies/            # 4 SVG case study thumbnails
+    hero/, team/, partners/
   nav.js                     # Vanilla JS for header dropdowns & mobile nav
+  favicon.svg                # Branded SVG favicon
+  favicon.ico                # Multi-size ICO (16/32/48px)
+  site.webmanifest           # PWA manifest
+  brochure.pdf               # Downloadable company brochure
 
 src/
   components/
     layout/                  # Header, Footer, MobileNav, CookieBanner
     ui/                      # HeroCarousel, ServiceCard, SearchBar, ContactForm, ...
-    sections/                # HeroSection, ServicesSection, StatsSection, ...
-  pages/                     # 19 island entry points (one per page type)
+    sections/                # HeroSection, TrustBanner, ServicesSection, StatsSection, ...
+  pages/                     # 20 island entry points (one per page type)
   templates/                 # React components for static HTML generation
   styles/
     base.css                 # CSS custom properties (brand tokens)
@@ -52,17 +58,18 @@ src/
     consent.js               # Cookie consent (localStorage)
 
 scripts/
-  build-static.mjs           # Generates all 41 HTML files from JSON + React templates
+  build-static.mjs           # Generates all 42 HTML files from JSON + React templates
+  generate-favicon.mjs       # Rasterises favicon.svg → favicon.ico + site.webmanifest
 
 dist/                        # Production build output — deploy this folder
 specs/                       # Feature specifications and implementation plans
 ```
 
-## Pages (41 HTML files)
+## Pages (42 HTML files)
 
 | Page | Path | Description |
 |------|------|-------------|
-| Home | `/` | Hero carousel, services, industries, stats, case studies, partners |
+| Home | `/` | Hero carousel, trust banner, services, industries, stats, case studies, partners |
 | Services | `/services/` | All 9 services grid |
 | Service Detail | `/services/[slug]/` | 9 individual service pages |
 | About | `/about/` | Company story and values |
@@ -75,7 +82,8 @@ specs/                       # Feature specifications and implementation plans
 | Insight Detail | `/insights/[slug]/` | 3 individual article pages |
 | Case Studies | `/case-studies/` | Project case studies listing |
 | Case Study Detail | `/case-studies/[slug]/` | 4 individual case study pages |
-| Contact | `/contact/` | Contact form and office locations |
+| Contact | `/contact/` | Contact form and office locations (6 global offices) |
+| Tracking | `/tracking/` | Shipment tracking enquiry form and how-it-works |
 | Careers | `/careers/` | Open positions |
 | Sustainability | `/sustainability/` | ESG commitments |
 | Training Academy | `/training-academy/` | Training programmes |
@@ -103,7 +111,7 @@ npm run dev
 
 Generates static HTML then starts the Vite dev server. Navigate to `http://localhost:5173/`.
 
-> **Note:** Content changes require re-running `npm run dev` since HTML is generated at build time from JSON files.
+> **Note:** Content changes require re-running `npm run dev` since HTML is generated at build time from JSON files. Use `npm run preview` to serve the full production build including Vite-bundled assets.
 
 ### Production Build
 
@@ -112,7 +120,7 @@ npm run build
 ```
 
 Runs in three steps:
-1. `node --import tsx/esm scripts/build-static.mjs` — generates 41 HTML files
+1. `node --import tsx/esm scripts/build-static.mjs` — generates 42 HTML files
 2. `vite build` — bundles JS/CSS assets into `dist/assets/`
 3. `npx pagefind --site dist` — indexes all pages for search
 
@@ -186,8 +194,9 @@ Add a matching SVG icon to `public/images/services/` or `public/images/industrie
 
 The `dist/` folder is a fully self-contained static site. Deploy to any static host:
 
-| Platform | Command |
-|----------|---------|
+| Platform | Notes |
+|----------|-------|
+| Azure Static Web Apps | CI/CD via `.github/workflows/`; config in `staticwebapp.config.json` |
 | GitHub Pages | `npm run deploy:gh` (requires `gh-pages` package) |
 | Netlify | Drag and drop `dist/`, or set build command `npm run build` and publish dir `dist` |
 | Vercel | Set framework to "Other", build command `npm run build`, output dir `dist` |
@@ -199,6 +208,7 @@ The `dist/` folder is a fully self-contained static site. Deploy to any static h
 npm run dev           # Development server
 npm run build         # Full production build
 npm run preview       # Serve dist/ locally
+npm run favicon       # Regenerate favicon.ico + site.webmanifest from favicon.svg
 npm test              # Unit tests (Vitest)
 npm run test:e2e      # End-to-end + accessibility tests (Playwright)
 npm run lighthouse    # Lighthouse CI audit
@@ -216,13 +226,17 @@ The site is statically pre-rendered HTML. JavaScript is only loaded for interact
 - Page data is embedded as JSON in `<script id="__PAGE_DATA__" type="application/json">`
 - The shared React chunk (~145 KB) is loaded once and cached across pages
 
+### Filter Islands
+
+The homepage Services and Industries sections are wrapped in a `#filter-root` mount point. On hydration, `FilterRoot` in `src/pages/home/main.jsx` replaces the static fallback with an interactive React tree that shares `activeIndustry` state between the two sections, enabling cross-section filtering without a page reload.
+
 ### CSS Custom Properties
 
-Brand colours and design tokens are defined as CSS variables in `src/styles/base.css` and referenced via Tailwind's config (`tailwind.config.js`). Never use magic pixel values or hardcoded colour hex codes in components.
+Brand colours and design tokens are defined as CSS variables in `src/styles/base.css` and referenced via Tailwind's config (`tailwind.config.js`). The `@import './base.css'` line must be first in `tailwind.css` — PostCSS silently drops imports that appear after `@tailwind` directives.
 
 ### Navigation Interactivity
 
-Desktop dropdown menus and the mobile nav drawer are powered by `public/nav.js` — a small vanilla JS file that runs on every page without requiring React hydration.
+Desktop dropdown menus and the mobile nav drawer are powered by `public/nav.js` — a small vanilla JS IIFE that runs on every page using `data-*` attribute selectors, without requiring React hydration.
 
 ## Constitution
 

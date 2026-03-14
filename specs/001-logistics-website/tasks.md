@@ -301,6 +301,8 @@ Single-project MPA. All source at repository root: `src/`, `data/`, `scripts/`, 
 - **US5 (Phase 10)**: Depends on US1 (ContactSection stub exists)
 - **US9 (Phase 11)**: Depends on Foundational; independent
 - **Polish (Phase 12)**: Depends on all desired user stories being complete
+- **Post-Implementation Fixes (Phase 13)**: Applied after initial build integration testing
+- **Competitive Enhancements (Phase 14)**: Applied post-Phase 13; competitive gap analysis vs NTC Logistics
 
 ### User Story Dependencies
 
@@ -383,7 +385,9 @@ Team B: T052 → T053 → T054 → T055 → T056 → T057 → T058 → T059 → 
 | Phase 10 | US5 (P5) | 6 |
 | Phase 11 | US9 (P5) | 4 |
 | Phase 12 | Polish (remaining pages + search + quality gates) | 33 |
-| **Total** | | **132** |
+| Phase 13 | Post-Implementation Fixes (FIX001–FIX006) | 6 |
+| Phase 14 | Competitive Enhancement & Polish (ENH001–ENH019, BUG001–BUG002) | 21 |
+| **Total** | | **159** |
 
 ---
 
@@ -403,6 +407,114 @@ All tasks in this phase are `[X]` — they have been applied to the codebase.
 - [X] FIX005 Fix search stuck on "Loading search…": `SearchBar.jsx` requested `/\_pagefind/pagefind-ui.js` but Pagefind v1.x outputs to `dist/pagefind/` (no leading underscore). Fix: changed both script `src` and CSS `href` to `/pagefind/pagefind-ui.js` and `/pagefind/pagefind-ui.css`
 
 - [X] FIX006 Fix constitution violations — hardcoded strings and missing assets: (a) "Search", "Menu", and "Loading search…" were hardcoded in `SearchBar.jsx` and `MobileNav.jsx` — moved to `data/config/ui.json` as `SEARCH_MODAL_TITLE`, `NAV_MOBILE_MENU_TITLE`, `SEARCH_LOADING`; (b) `og-default.webp` referenced in `site.json` but missing — created branded `public/images/og-default.svg` and updated `site.json`; (c) industry SVG icons in `public/images/industries/` contained placeholder "Partner" content — replaced with distinct branded SVG icons per industry; (d) `map-static.webp` referenced in `offices.json` but missing — created `public/images/map-static.svg` India map with office pins and updated `offices.json`
+
+---
+
+## Phase 14: Competitive Enhancement & Polish (2026-03-15)
+
+**Purpose**: Improvements identified via head-to-head comparison with NTC Logistics to score
+SSVT higher across visual design, functionality, content depth, and trust signals.
+All tasks are `[X]` — applied to the codebase.
+
+### Comparison-Driven Enhancements
+
+- [X] ENH001 Add `NAV_REQUEST_QUOTE`, `NAV_TRACKING_LABEL`, `HERO_SECONDARY_CTA`, `HERO_TRUST_*`,
+  `TRUST_BANNER_*`, and `TRACKING_*` string keys to `data/config/ui.json` — all new UI copy
+  sourced from JSON per FR-002 zero-hardcoded-strings rule
+
+- [X] ENH002 Enable brochure download: set `brochurePdfPath: "/brochure.pdf"` in
+  `data/config/site.json` — was `null`; brochure PDF already existed in `public/`
+
+- [X] ENH003 Add 4th hero message to `data/config/site.json`; sharpen all hero copy to
+  include ISO certification, stats callouts, and 24/7 operations signals in first viewport
+
+- [X] ENH004 Add three international office entries to `data/offices.json`:
+  Singapore, Dubai (UAE), and London (UK) — total 6 offices vs original 3 India-only
+
+- [X] ENH005 Expand `data/statistics.json` from 6 to 8 stats: add "6 Global Offices"
+  and "24/7 Operations (365 days/yr)" entries
+
+- [X] ENH006 Redesign `src/components/sections/HeroSection.jsx`:
+  (a) animated floating circles (CSS `animate-pulse`) as background depth elements;
+  (b) diagonal orange gradient accent overlay;
+  (c) SVG cargo-route decoration (dashed path + waypoint dots) at bottom;
+  (d) pill badge "24/7 Operations — ISO 9001:2015 Certified" above headline;
+  (e) dual CTA row: primary "Explore Our Services" + secondary "Request a Quote";
+  (f) inline mini-stats row (15+/1,200+/12/98%) within the hero viewport;
+  (g) trust certification strip pinned to hero bottom (ISO cert, IC T50, global, tracking link)
+
+- [X] ENH007 Create `src/components/sections/TrustBanner.jsx` — 6-tile certification strip
+  (ISO 9001, ISO 14001, OHSAS 18001, IC T50 Ranked, 6 Countries, 24/7 Operations) with
+  icon + label + description per tile; hover transitions to orange background; data-reveal
+
+- [X] ENH008 Update `src/templates/HomePage.jsx` to import and render `TrustBanner`
+  immediately after `HeroSection` and before the filter root
+
+- [X] ENH009 Redesign `src/components/layout/Header.jsx`:
+  (a) two-tier layout: navy utility top bar (phone, Track Shipment link, brochure download)
+      visible on `md:block` screens above the main nav;
+  (b) brand logo mark (orange rounded square + white chart icon SVG) alongside company name;
+  (c) "Request a Quote" orange CTA button (`hidden md:inline-flex`) in header right section;
+  (d) refined dropdown menu styles (left border accent, hover highlight);
+  (e) improved hover/focus states throughout
+
+- [X] ENH010 Update `src/components/layout/MobileNav.jsx`: add bottom CTA section to drawer
+  with three elements: (a) full-width orange "Request a Quote" button → `/contact/`;
+  (b) navy "Track Shipment" button → `/tracking/`; (c) outlined "Download Brochure" button
+  → `/brochure.pdf`; all labels from `ui` prop; all touch targets `min-h-[44px]`
+
+### Shipment Tracking Page (FR-P22)
+
+- [X] ENH011 Create `data/tracking.json` with heading, subtext, `howItWorksSteps[]` (3 steps),
+  `contactPhone`, `contactEmail`, and `seo{ title, description }`
+
+- [X] ENH012 Create `src/templates/TrackingPage.jsx` — renders Header, navy gradient page
+  header, two-column layout (tracking form card left, "how it works" + immediate-help right),
+  Footer; all content from `tracking` and `ui` props; `data-reveal` on sections
+
+- [X] ENH013 Create `src/pages/tracking/main.jsx` — island entry: mounts `TrackingForm`
+  React island (controlled form with ref + email fields, inline validation, Formspree POST
+  or mailto fallback, submitting/success/error states); also hydrates SearchBar, BackToTop,
+  CookieBanner; calls `injectAnalytics` and `initScrollReveal`
+
+- [X] ENH014 Add `generateTrackingPage()` to `scripts/build-static.mjs`: loads
+  `data/tracking.json`, validates SEO lengths, renders `TrackingPage`, writes
+  `dist/tracking/index.html`; passes `formspreeId` and `contactEmail` in `pageDataScript`
+
+- [X] ENH015 Fix SEO description length in `data/tracking.json`: trimmed from 165 chars
+  to ≤160 chars to pass `validateSeo()` gate in build script
+
+### Favicon & PWA (FR-E06)
+
+- [X] ENH016 Create `public/favicon.svg` — branded SVG favicon: gradient orange rounded
+  square (`#f59340 → #d9601a`) with area fill, glowing white trend-line chart (same path
+  as header logo), peak accent dot (white circle + inner brand-colour ring), and muted
+  baseline; matches header logo exactly
+
+- [X] ENH017 Create `scripts/generate-favicon.mjs` — pure Node.js (zero dependencies)
+  multi-size ICO generator: Bresenham line rasteriser, bilinear gradient fill, rounded-corner
+  mask (transparent outside rect), alpha compositing for glow and area-fill passes;
+  generates `public/favicon.ico` (16×16 + 32×32 + 48×48) and `public/site.webmanifest`
+
+- [X] ENH018 Add `"favicon": "node scripts/generate-favicon.mjs"` script to `package.json`
+
+- [X] ENH019 Update `src/templates/PageShell.jsx` to include in `<head>` on every page:
+  `<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">`,
+  `<link rel="icon" type="image/svg+xml" href="/favicon.svg">`,
+  `<link rel="apple-touch-icon" href="/favicon.svg">`,
+  `<link rel="manifest" href="/site.webmanifest">`,
+  `<meta name="theme-color" content="#f07b2b">`
+
+### Bug Fixes
+
+- [X] BUG001 Fix "Request a Quote" not visible on mobile: the button in `Header.jsx` used
+  `hidden md:inline-flex` making it desktop-only. Fix: added full bottom CTA section to
+  `MobileNav.jsx` (ENH010) so mobile users have equivalent access to the quote and tracking CTAs
+
+- [X] BUG002 Fix tracking page rendering without header/footer: `TrackingPage.jsx` imported
+  `PageShell` but omitted `Header` and `Footer` imports and render calls. Fix: added
+  `import Header` and `import Footer`, wrapped content in `<main id="main-content">`,
+  and rendered `<Header>` and `<Footer>` as siblings inside `PageShell`
 
 ---
 
