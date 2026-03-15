@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 export default function SearchBar({ ui }) {
   const [open, setOpen] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  const scriptLoadedRef = useRef(false);
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
 
@@ -17,30 +17,35 @@ export default function SearchBar({ ui }) {
   useEffect(() => {
     if (!open) return;
 
-    // Load Pagefind UI on first open
-    if (!loaded) {
-      const script = document.createElement('script');
-      script.src = '/pagefind/pagefind-ui.js';
-      script.onload = () => {
-        if (window.PagefindUI) {
-          new window.PagefindUI({ element: '#pagefind-search', showImages: false });
-        }
-        setLoaded(true);
-      };
-      document.head.appendChild(script);
+    // Re-init PagefindUI on every open so the input is always fresh
+    const initUI = () => {
+      if (window.PagefindUI) {
+        const container = document.getElementById('pagefind-search');
+        if (container) container.innerHTML = '';
+        new window.PagefindUI({ element: '#pagefind-search', showImages: false });
+      }
+    };
+
+    if (!scriptLoadedRef.current) {
+      scriptLoadedRef.current = true;
 
       const link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = '/pagefind/pagefind-ui.css';
       document.head.appendChild(link);
+
+      const script = document.createElement('script');
+      script.src = '/pagefind/pagefind-ui.js';
+      script.onload = initUI;
+      document.head.appendChild(script);
+    } else {
+      initUI();
     }
 
-    // Small delay to ensure display:flex has applied before focusing
     setTimeout(() => closeButtonRef.current?.focus(), 10);
 
     function handleKeyDown(e) {
       if (e.key === 'Escape') setOpen(false);
-      // Focus trap
       if (e.key === 'Tab') {
         const focusable = modalRef.current?.querySelectorAll(
           'button, input, a, [tabindex]:not([tabindex="-1"])'
@@ -64,42 +69,36 @@ export default function SearchBar({ ui }) {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
-  }, [open, loaded]);
+  }, [open]);
+
+  if (!open) return null;
 
   return (
-    <>
-      {/* Search modal — always in DOM so PagefindUI stays attached; hidden via CSS when closed */}
-      <div
-        className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Search"
-        aria-hidden={!open}
-        style={{ display: open ? 'flex' : 'none' }}
-      >
-        <div className="fixed inset-0 bg-black/50" onClick={() => setOpen(false)} aria-hidden="true" />
-        <div ref={modalRef} className="relative bg-white rounded-xl shadow-xl w-full max-w-2xl">
-          <div className="flex justify-between items-center p-4 border-b">
-            <span className="font-semibold text-navy">{ui?.SEARCH_MODAL_TITLE || 'Search'}</span>
-            <button
-              ref={closeButtonRef}
-              onClick={() => setOpen(false)}
-              className="p-2 text-gray-500 hover:text-navy min-h-[44px] min-w-[44px] flex items-center justify-center rounded"
-              aria-label={ui?.SEARCH_CLOSE_LABEL || 'Close search'}
-            >
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <div className="p-4">
-            <div id="pagefind-search" />
-            {!loaded && (
-              <p className="text-gray-400 text-sm text-center py-4">{ui?.SEARCH_LOADING || 'Loading search...'}</p>
-            )}
-          </div>
+    <div
+      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Search"
+    >
+      <div className="fixed inset-0 bg-black/50" onClick={() => setOpen(false)} aria-hidden="true" />
+      <div ref={modalRef} className="relative bg-white rounded-xl shadow-xl w-full max-w-2xl">
+        <div className="flex justify-between items-center p-4 border-b">
+          <span className="font-semibold text-navy">{ui?.SEARCH_MODAL_TITLE || 'Search'}</span>
+          <button
+            ref={closeButtonRef}
+            onClick={() => setOpen(false)}
+            className="p-2 text-gray-500 hover:text-navy min-h-[44px] min-w-[44px] flex items-center justify-center rounded"
+            aria-label={ui?.SEARCH_CLOSE_LABEL || 'Close search'}
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div className="p-4">
+          <div id="pagefind-search" />
         </div>
       </div>
-    </>
+    </div>
   );
 }
