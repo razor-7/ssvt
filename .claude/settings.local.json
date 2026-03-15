@@ -70,11 +70,10 @@
       "Bash(node -e \"const p = JSON.parse\\(require\\(''fs''\\).readFileSync\\(''c:/ssvt/package.json'',''utf8''\\)\\); console.log\\(JSON.stringify\\(p.scripts, null, 2\\)\\)\")",
       "Bash(ls c:/ssvt/dist/favicon*)",
       "Bash(node -e \"const p=JSON.parse\\(require\\(''fs''\\).readFileSync\\(''package.json'',''utf8''\\)\\); console.log\\(JSON.stringify\\({name:p.name,version:p.version,description:p.description,scripts:p.scripts,engines:p.engines},null,2\\)\\)\")",
-      "Bash(npx js-yaml:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
+      "Bash(npx js-yaml:*)",   
       "Bash(az --version)",
-      "Bash(az version:*)"
+      "Bash(az version:*)",
+      "Bash(git add:*)"
     ]
   }
 }
