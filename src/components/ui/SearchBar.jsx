@@ -35,7 +35,8 @@ export default function SearchBar({ ui }) {
       document.head.appendChild(link);
     }
 
-    closeButtonRef.current?.focus();
+    // Small delay to ensure display:flex has applied before focusing
+    setTimeout(() => closeButtonRef.current?.focus(), 10);
 
     function handleKeyDown(e) {
       if (e.key === 'Escape') setOpen(false);
@@ -65,12 +66,17 @@ export default function SearchBar({ ui }) {
     };
   }, [open, loaded]);
 
-  if (!open) return null;
-
   return (
     <>
-      {/* Search modal */}
-      <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4" role="dialog" aria-modal="true" aria-label="Search">
+      {/* Search modal — always in DOM so PagefindUI stays attached; hidden via CSS when closed */}
+      <div
+        className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search"
+        aria-hidden={!open}
+        style={{ display: open ? 'flex' : 'none' }}
+      >
         <div className="fixed inset-0 bg-black/50" onClick={() => setOpen(false)} aria-hidden="true" />
         <div ref={modalRef} className="relative bg-white rounded-xl shadow-xl w-full max-w-2xl">
           <div className="flex justify-between items-center p-4 border-b">
