@@ -91,7 +91,7 @@ export default function Header({ navigation, siteConfig, ui, currentPath = '/' }
                 ) : (
                   <a
                     href={item.href}
-                    className={`text-sm font-medium no-underline hover:text-orange-accent transition-colors py-2 ${
+                    className={`inline-flex items-center text-sm font-medium no-underline hover:text-orange-accent transition-colors py-2 ${
                       currentPath === item.href ? 'text-orange-accent' : 'text-gray-700'
                     }`}
                     aria-current={currentPath === item.href ? 'page' : undefined}
