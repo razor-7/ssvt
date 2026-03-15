@@ -13,6 +13,7 @@ export default function HeroSection({ siteConfig, ui }) {
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover animate-hero-zoom"
+          style={{ willChange: 'transform' }}
           fetchpriority="high"
         />
       ) : (

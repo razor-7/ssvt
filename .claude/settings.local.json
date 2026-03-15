@@ -74,7 +74,8 @@
       "Bash(az --version)",
       "Bash(az version:*)",
       "Bash(git add:*)",
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Bash(node -e \"const d=require\\(''./data/config/site.json''\\); d.heroMessages.forEach\\(\\(m,i\\)=>console.log\\(i+1, JSON.stringify\\(m\\)\\)\\)\")"
     ]
   }
 }
