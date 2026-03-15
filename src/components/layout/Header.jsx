@@ -70,22 +70,23 @@ export default function Header({ navigation, siteConfig, ui, currentPath = '/' }
                         <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </button>
-                    <div className="absolute top-full left-0 w-52 bg-white shadow-xl rounded-md border border-gray-100 py-1 z-50 hidden" data-dropdown-menu>
+                    <ul role="list" className="absolute top-full left-0 w-52 bg-white shadow-xl rounded-md border border-gray-100 py-1 z-50 hidden" data-dropdown-menu>
                       {item.children.map((child) => (
-                        <a
-                          key={child.href}
-                          href={child.href}
-                          className={`block px-4 py-2.5 text-sm no-underline hover:bg-orange-accent/5 border-l-2 transition-colors ${
-                            currentPath === child.href
-                              ? 'text-orange-accent font-medium border-orange-accent'
-                              : 'text-gray-700 hover:text-navy border-transparent hover:border-orange-accent'
-                          }`}
-                          aria-current={currentPath === child.href ? 'page' : undefined}
-                        >
-                          {child.label}
-                        </a>
+                        <li key={child.href}>
+                          <a
+                            href={child.href}
+                            className={`block px-4 py-2.5 text-sm no-underline hover:bg-orange-accent/5 border-l-2 transition-colors ${
+                              currentPath === child.href
+                                ? 'text-orange-accent font-medium border-orange-accent'
+                                : 'text-gray-700 hover:text-navy border-transparent hover:border-orange-accent'
+                            }`}
+                            aria-current={currentPath === child.href ? 'page' : undefined}
+                          >
+                            {child.label}
+                          </a>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 ) : (
                   <a

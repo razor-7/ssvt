@@ -92,6 +92,10 @@ export default function HeroCarousel({ heroMessages, heroCTALabel, heroCarouselI
       onMouseLeave={() => { setPaused(false); startProgress(); }}
       className="text-center text-white"
     >
+      {/* Screen-reader live region — announces slide changes politely */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {`Slide ${current + 1} of ${heroMessages.length}: ${msg.headline}`}
+      </div>
       <h1 className="text-4xl lg:text-5xl font-bold mb-4 leading-tight" style={contentStyle}>
         {msg.headline}
       </h1>

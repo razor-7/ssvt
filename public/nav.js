@@ -31,6 +31,13 @@
     var closeBtn = nav ? nav.querySelector('[data-mobile-close-btn]') : null;
     var overlay = nav ? nav.querySelector('[data-mobile-overlay]') : null;
 
+    function getFocusable() {
+      if (!nav) return [];
+      return Array.from(nav.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )).filter(function (el) { return !el.closest('[aria-hidden="true"]'); });
+    }
+
     function openNav() {
       if (!nav) return;
       nav.classList.remove('hidden');
@@ -51,7 +58,22 @@
     if (overlay) overlay.addEventListener('click', closeNav);
 
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav && !nav.classList.contains('hidden')) closeNav();
+      if (e.key === 'Escape' && nav && !nav.classList.contains('hidden')) {
+        closeNav();
+        return;
+      }
+      // Focus trap inside mobile nav
+      if (e.key === 'Tab' && nav && !nav.classList.contains('hidden')) {
+        var focusable = getFocusable();
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      }
     });
   }
 
