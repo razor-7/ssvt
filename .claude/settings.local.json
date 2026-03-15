@@ -72,7 +72,9 @@
       "Bash(node -e \"const p=JSON.parse\\(require\\(''fs''\\).readFileSync\\(''package.json'',''utf8''\\)\\); console.log\\(JSON.stringify\\({name:p.name,version:p.version,description:p.description,scripts:p.scripts,engines:p.engines},null,2\\)\\)\")",
       "Bash(npx js-yaml:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(az --version)",
+      "Bash(az version:*)"
     ]
   }
 }
