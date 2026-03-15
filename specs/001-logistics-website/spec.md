@@ -3,7 +3,7 @@
 **Feature Branch**: `001-logistics-website`
 **Created**: 2026-03-14
 **Last Updated**: 2026-03-15
-**Status**: Implemented + Enhanced
+**Status**: Implemented + Enhanced + Accessibility Audited
 **Input**: User description: "Build a static, animated, SEO-optimized corporate logistics website — intuitive, eye-catching, driven by local JSON data"
 
 ## Change Log
@@ -32,6 +32,11 @@
 | 2026-03-15 | Lightened hero SVG ship hull to steel-blue tones (`#2a3e58`); containers use `#243448–#364c6a` | Ship silhouette was near-black and indistinguishable from cranes; steel-blue reads as a vessel against the golden sky |
 | 2026-03-15 | Added 3 oil tanker trucks at dock gaps in hero SVG port scene | Adds foreground scale reference and operational realism; each truck is proportional (≈78×18 px at 2.9 px/m scale derived from crane heights) |
 | 2026-03-15 | Fixed `bundle-check.mjs` to exclude lazy-loaded SearchBar chunk from initial-bundle total | Script was summing ALL JS chunks including the 147 KB Pagefind UI wrapper, falsely reporting 1092 KB vs the 300 KB limit; actual initial per-page bundle is ≈152 KB |
+| 2026-03-15 | Added SVG declarative animations to `hero-bg.svg`: Ken Burns zoom on background, floating particles, animated route dot, crane trolley movement (linear, 27–30 s cycles), truck exhaust/movement, funnel smoke | Lively feeling requested; all animations respect `prefers-reduced-motion` via `base.css` |
+| 2026-03-15 | Rebuilt `HeroCarousel` transitions: smooth fade + stagger (headline 0 ms, subtext 60 ms), progress ring on active dot indicator, `useRef` for current-index tracking (no stale-closure risk), `rAF`-driven ring animation | Removed jerky `key={current}` remount pattern; transitions now feel premium |
+| 2026-03-15 | Fixed `SearchBar` re-open bug: replaced `useState(loaded)` + `display:none` approach with `scriptLoadedRef` (ref) + `initUI()` called on every open; `#pagefind-search` container cleared and PagefindUI re-initialized each time modal opens | Pagefind cleared its container on hide; re-init on every open is reliable across all browsers |
+| 2026-03-15 | Accessibility audit + fixes: (1) added focus trap to `nav.js` mobile nav (was dead code in non-hydrated MobileNav.jsx); (2) added `aria-live="polite"` region to `HeroCarousel` for screen-reader slide announcements; (3) changed dropdown `<div><a>` to `<ul role="list"><li><a>` in `Header.jsx` for proper list semantics | Accessibility compliance audit (Web Content Accessibility Guidelines 2.1 AA) — three failures found and resolved |
+| 2026-03-15 | Simplified CI/CD workflow: removed OIDC token steps (`Install OIDC Client`, `Get Id Token`, `github_id_token` param, `id-token: write` permission); upgraded `actions/checkout@v3` → `@v4` | OIDC flow caused cascading GitHub Actions failures; API token secret is sufficient |
 
 ## Site Map
 

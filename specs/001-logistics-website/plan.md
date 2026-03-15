@@ -1,6 +1,6 @@
 # Implementation Plan: SSVT Logistics Corporate Website
 
-**Branch**: `001-logistics-website` | **Created**: 2026-03-14 | **Last Updated**: 2026-03-15 (visual enhancements) | **Spec**: [spec.md](spec.md)
+**Branch**: `001-logistics-website` | **Created**: 2026-03-14 | **Last Updated**: 2026-03-15 (accessibility audit + bug fixes) | **Spec**: [spec.md](spec.md)
 **Input**: Feature specification from `/specs/001-logistics-website/spec.md`
 
 ## Summary
@@ -79,6 +79,20 @@ folder of static files deployable to any static host with zero server process.
 | **III. Accessibility** | ✅ Pass | Hero `<img>` carries `alt=""` and `aria-hidden="true"` (decorative). Scroll indicator uses `aria-hidden="true"`. Case study SVG assets are presentational (`imageAlt` from JSON drives the accessible label on cards). |
 | **IV. Responsive Design** | ✅ Pass | Hero background uses `object-cover` + `w-full h-full` — fills any viewport. SVG `viewBox` with `preserveAspectRatio="xMidYMid slice"` ensures correct crop at all widths. |
 | **V. Lightweight & Performance** | ✅ Pass | Hero SVG is ~23 KB; `fetchpriority="high"` on the `<img>` optimizes LCP. `bundle-check.mjs` now correctly excludes lazy-loaded SearchBar (~147 KB); actual initial per-page bundle ≈152 KB (< 300 KB limit). |
+
+**Post-Implementation Constitution Check: ALL GATES PASS.**
+
+### Post-Implementation Re-Check (2026-03-15 — accessibility audit + bug fixes)
+
+*Re-evaluated after Web Content Accessibility Guidelines 2.1 AA accessibility audit, SearchBar re-open fix, HeroCarousel rebuild, and CI/CD simplification.*
+
+| Principle | Status | Evidence |
+|-----------|--------|---------|
+| **I. Simplicity & YAGNI** | ✅ Pass | No new dependencies added. Accessibility fixes are targeted DOM attribute and CSS changes. `public/nav.js` extended in-place (focus trap). `HeroCarousel.jsx` rebuilt without adding any new library — pure React hooks + `rAF`. CI/CD workflow simplified by removing OIDC steps that were not required. |
+| **II. Static-First** | ✅ Pass | No new runtime data fetching. All fixes are either static HTML attribute changes or client-side JS event-handling improvements. |
+| **III. Accessibility** | ✅ Pass | **Fixes applied**: (1) `public/nav.js` now includes a keyboard focus trap for the mobile nav drawer (Tab/Shift-Tab cycling, focus returns to hamburger on close). (2) `Header.jsx` dropdown menus changed from `<div>` list to `<ul role="list"><li>` — correct list semantics for screen readers. (3) `HeroCarousel.jsx` now has `aria-live="polite" aria-atomic="true"` live region announcing slide changes. (4) `SearchBar.jsx` re-open bug fixed — `PagefindUI` is re-initialized on every modal open so the search input is always visible. All interactive elements retain keyboard navigability and announced labels. |
+| **IV. Responsive Design** | ✅ Pass | No layout changes; all fixes are behavior/semantics/ARIA only. |
+| **V. Lightweight & Performance** | ✅ Pass | `public/nav.js` change is ~200 bytes. No new JS files or dependencies. `HeroCarousel.jsx` now uses `rAF` instead of `setInterval` for the progress ring — more precise and battery-efficient. |
 
 **Post-Implementation Constitution Check: ALL GATES PASS.**
 

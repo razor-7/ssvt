@@ -247,7 +247,19 @@ Brand colours and design tokens are defined as CSS variables in `src/styles/base
 
 ### Navigation Interactivity
 
-Desktop dropdown menus and the mobile nav drawer are powered by `public/nav.js` — a small vanilla JS IIFE that runs on every page using `data-*` attribute selectors, without requiring React hydration.
+Desktop dropdown menus and the mobile nav drawer are powered by `public/nav.js` — a small vanilla JS IIFE that runs on every page using `data-*` attribute selectors, without requiring React hydration. The mobile nav includes a keyboard focus trap (Tab/Shift-Tab cycling) and returns focus to the hamburger button on close.
+
+### Search (Pagefind)
+
+Full-text search is powered by Pagefind, indexed post-build. The `SearchBar` component lazy-loads `/pagefind/pagefind-ui.js` on first open and re-initializes `PagefindUI` on every subsequent open — ensuring the search input is always visible regardless of how many times the modal is opened and closed.
+
+### Hero Carousel
+
+`HeroCarousel.jsx` cycles hero messages with a smooth fade + slide transition (`opacity` + `translateY`, no `key`-driven remount). A `requestAnimationFrame` progress ring shows time until the next slide. The carousel pauses on hover, respects `prefers-reduced-motion`, and announces slide changes via `aria-live="polite"`.
+
+### CI/CD (Azure Static Web Apps)
+
+Deployment is handled by `.github/workflows/azure-static-web-apps-lively-cliff-04acf7f00.yml`. The workflow uses `Azure/static-web-apps-deploy@v1` with the deployment token stored as `AZURE_STATIC_WEB_APPS_API_TOKEN_LIVELY_CLIFF_04ACF7F00` in GitHub Secrets. OIDC token flow is not used.
 
 ## Constitution
 

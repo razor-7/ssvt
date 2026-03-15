@@ -601,6 +601,25 @@ All tasks are `[X]` — applied to the codebase.
 
 ---
 
+## Phase 15: Accessibility Audit + Bug Fixes (2026-03-15)
+
+**Purpose**: Targeted fixes from a Web Content Accessibility Guidelines 2.1 AA audit, a SearchBar re-open regression, and CI/CD simplification.
+All tasks are `[X]` — applied to the codebase.
+
+- [X] A11Y001 Fix mobile nav keyboard focus trap: `MobileNav.jsx` React `useEffect` focus-trap code was dead (component never hydrated as a React island). Fix: add `getFocusable()` helper and Tab/Shift-Tab cycling logic to `public/nav.js` keydown handler; focus returns to `[data-mobile-open-btn]` on close via `openBtn.focus()`
+
+- [X] A11Y002 Fix dropdown menu list semantics in `src/components/layout/Header.jsx`: change dropdown container from a bare `<div>` containing raw `<a>` elements to `<ul role="list">` containing `<li><a>` — screen readers now announce dropdown items as list members
+
+- [X] A11Y003 Add `aria-live` region to `src/components/ui/HeroCarousel.jsx`: add `<div aria-live="polite" aria-atomic="true" className="sr-only">` that announces `"Slide N of M: headline"` on every slide change — keyboard and screen-reader users now receive audible slide transition cues
+
+- [X] A11Y004 Fix `SearchBar.jsx` not visible on second open: root cause was `PagefindUI` clearing its own container div on destruction. Fix: switch script-loaded tracking from `useState` to `useRef` (avoids re-render / double-effect); call `initUI()` (which clears `#pagefind-search` innerHTML and constructs a fresh `PagefindUI` instance) on every `open === true` effect run — search input is now always present regardless of how many times the modal is opened and closed
+
+- [X] A11Y005 Simplify CI/CD workflow `.github/workflows/azure-static-web-apps-lively-cliff-04acf7f00.yml`: remove OIDC token steps (`Install OIDC Client`, `Get Id Token`) and `permissions: id-token: write` that were not required for the `azure_static_web_apps_api_token` secret flow; upgrade `actions/checkout@v3` to `@v4`
+
+- [X] A11Y006 Rebuild `src/components/ui/HeroCarousel.jsx` for smooth transitions: remove `key={current}` prop that caused React to fully unmount/remount the content div on each slide change (producing a visible jerk). Replace with CSS `opacity` + `translateY` transition driven by a `visible` boolean state; stagger subtext transition by 60 ms for a natural cascade effect; use `useRef` for current slide index to avoid stale closures in `setInterval`; add `rAF` (`requestAnimationFrame`) loop for the SVG progress ring so the animation is frame-accurate
+
+---
+
 ## Notes
 
 - [P] tasks = different files, no dependencies on incomplete tasks — safe to parallelise
